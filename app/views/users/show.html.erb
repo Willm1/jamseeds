@@ -5,4 +5,7 @@
 
 
 <%= link_to 'Back to profiles', users_path %>
-<%= link_to 'Edit my profile', edit_user_registration_path %>
+
+<% if current_user ==  @user %>
+  <%= link_to 'Edit my profile', edit_user_registration_path %>
+<% end %>

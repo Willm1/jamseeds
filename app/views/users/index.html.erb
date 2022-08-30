@@ -4,8 +4,8 @@
 
     <% @users.each do |user| %>
       <%= link_to user_path(user) do %>
-          <h2><%= user.email %></h2>
-          <h2><%= user.first_name %></h2>
+
+          <h2>Name:   <%= user.first_name %></h2>
 
       <% end %>
     <% end %>
