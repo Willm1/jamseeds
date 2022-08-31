@@ -2,3 +2,34 @@
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 23%, rgba(0,94,114,1) 100%);
 }
+
+.profile-card {
+  display: flex;
+  flex-direction: rox;
+  max-width: 300px;
+  max-height: 200px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  margin: 0 auto;
+}
+
+.card-bg {
+  color: $white;
+  padding: 20px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 23%, rgba(0,94,114,1) 100%);
+}
+
+.profile__image {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile__name {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
