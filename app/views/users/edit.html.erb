@@ -25,6 +25,11 @@
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :ability,
+                as: :radio_buttons, collection: [['0', 'Beginner'], ['1', 'Intermediate'], ['2', 'Advanced'], ['3', 'Expert']], label_method: :second, value_method: :first,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
     <div class="form-actions">
       <%= f.button :submit, "Update" %>
     </div>

@@ -1,5 +1,8 @@
 require 'faker'
 
+UserInstrument.destroy_all
+User.destroy_all
+
 puts "Creating database"
 # generate 30 users
 
