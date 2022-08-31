@@ -10,12 +10,8 @@ class UserPolicy < ApplicationPolicy
     return true
   end
 
-  def edit?
-    true 
-    # record.user == user
-  end
-
   def update?
-    edit?
+
+    record == user
   end
 end
