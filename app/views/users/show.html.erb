@@ -16,18 +16,38 @@
 
 
   <h6>Instruments:</h6>
+
+  <% if @user.user_instruments.empty? %>
+    <p>It's empty</p>
+  <% else %>
+    <ul>
+      <% @user.user_instruments.each do |user_instrument| %>
+        <li>
+          <%= user_instrument.instrument.name %>
+          <%= link_to 'X', user_instrument_path(user_instrument),
+            data: { "turbo-method": :delete } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if current_user ==  @user %>
+    <p><%= link_to 'Add instrument', new_user_instrument_path %></p>
+  <% end %>
+
+  <h6>Genres:</h6>
   <ul>
-    <% @user.user_instruments.each do |user_instrument| %>
+    <% @user.user_genres.each do |user_genre| %>
       <li>
-        <%= user_instrument.instrument.name %>
-        <%= link_to 'X', user_instrument_path(user_instrument),
+        <%= user_genre.genre.name %>
+        <%= link_to 'X', user_genre_path(user_genre),
           data: { "turbo-method": :delete } %>
       </li>
     <% end %>
   </ul>
 
   <% if current_user ==  @user %>
-    <p><%= link_to 'Add instrument', new_user_instrument_path %></p>
+    <p><%= link_to 'Add a genre', new_user_genre_path %></p>
     <p><%= link_to 'Manage my account', edit_user_registration_path %></p>
   <% end %>
 
