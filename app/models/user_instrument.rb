@@ -1,4 +1,6 @@
 class UserInstrument < ApplicationRecord
   belongs_to :user
-  belongs_to :intrument
+  belongs_to :instrument
+
+
 end

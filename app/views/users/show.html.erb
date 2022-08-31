@@ -6,6 +6,19 @@
 
 <%= link_to 'Back to profiles', users_path %>
 
+<h2>List of instruments:</h2>
+<ul>
+  <% @user.user_instruments.each do |user_instrument| %>
+    <li>
+      <%= user_instrument.instrument.name %>
+      <%= link_to 'X', user_instrument_path(user_instrument),
+        data: { "turbo-method": :delete } %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Add instrument', new_user_instrument_path %></p>
+
 <% if current_user ==  @user %>
   <%= link_to 'Edit my profile', edit_user_registration_path %>
 <% end %>
