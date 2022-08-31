@@ -1,12 +1,61 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
-<div class="cont">
+
+
+ <!--
+
+
     <% @users.each do |user| %>
       <%= link_to user_path(user) do %>
 
-          <h2>Name:   <%= user.first_name %></h2>
+          <h2><%= user.first_name %></h2>
+          <p><%= user.city %></p>
+
+          <p><%= user.age %></p>
+          <p><%= user.updated_ability %></p>
+          <p><%= user.genres.name %></p>
+          <p><%= user.instruments.name %></p>
 
       <% end %>
     <% end %>
-</div>
+    -->
+
+
+  <h1>Users</h1>
+
+    <% @users.each do |user| %>
+      <%= link_to user_path(user) do %>
+        <%= link_to css_template_path, class: "card-link" do %>
+          <div class="card-profile-small">
+            <div class="card-bg">
+              <div>
+                <img src="https://image.shutterstock.com/image-photo/portrait-happy-mature-man-wearing-260nw-732336316.jpg" id="profile-image" alt="User profile image">
+                <h5 id="profile-name"><%=  user.first_name %></h5>
+                <p><%= "#{user.city}, Portugal" %></p>
+                <p><%= user.age %></p>
+              </div>
+            </div>
+            <div class="card-body w-100">
+              <div>
+                <h5 class="card-body__title">Instruments</h5>
+                <p class="card-body__details"><%= user.instruments.name %></p>
+                <hr>
+              </div>
+              <div>
+                <h5 class="card-body__title">Genre</h5>
+                <p class="card-body__details"><%= "#{user.genres.name}"; %>
+                </p>
+                <hr>
+              </div>
+              <div>
+                <h5 class="card-body__title">Ability</h5>
+                <p class="card-body__details"><%= user.updated_ability %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <br><br><br>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+
