@@ -76,3 +76,25 @@
               rgba(0, 0, 0, 0.07) 0px 16px 32px,
               rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+@media(max-width: 1202px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 808px) {
+
+  .cards {
+    grid-template-columns: 1fr;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
