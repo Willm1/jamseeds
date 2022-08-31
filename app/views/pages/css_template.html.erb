@@ -1,48 +1,65 @@
 <div class="container">
   <br>
-  <h1>Headers, Paragraphs & Links</h1>
-  <hr>
-  <h1>Header H1</h1>
-  <h2>Header H2</h2>
-  <h3>Header H3</h3>
-  <h4>Header H4</h4>
-  <h5>Header H5</h5>
-  <h6>Header H6</h6>
-  <p></p>
-  <p>This is a paragraph</p>
-  <a href="#">This is a link</a>
 
-  <br>
-  <br>
-  <br>
+  <h1>Headers, Paragraphs & Links</h1>
+  <div>
+    <hr>
+    <h1>Header H1</h1>
+    <h2>Header H2</h2>
+    <h3>Header H3</h3>
+    <h4>Header H4</h4>
+    <h5>Header H5</h5>
+    <h6>Header H6</h6>
+    <p></p>
+    <p>This is a paragraph</p>
+    <a href="#">This is a link</a>
+    <br>
+    <br>
+    <br>
+  </div>
 
   <h1>Buttons</h1>
-  <hr>
-  <div class="btn btn-primary">Primary Button</div>
-  <div class="btn btn-secondary">Secondary Button</div>
+  <div>
+    <hr>
+    <div class="btn btn-primary">Primary Button</div>
+    <div class="btn btn-secondary">Secondary Button</div>
+    <br><br><br>
+    <h1>User Card</h1>
+    <hr>
+  </div>
+
+  <%# User profile card %>
+  <%= link_to css_template_path, class: "card-link" do %>
+    <div class="card-profile-small">
+
+      <div class="card-bg">
+        <div>
+          <img src="https://image.shutterstock.com/image-photo/portrait-happy-mature-man-wearing-260nw-732336316.jpg" id="profile-image" alt="User profile image">
+          <h5 id="profile-name">Louis Bobby</h5>
+          <p>Lisbon, Portugal</p>
+          <p>Age: 32</p>
+        </div>
+      </div>
+
+      <div class="card-body w-100">
+          <div>
+            <h5 class="card-body__title">Instruments</h5>
+            <p class="card-body__details">Vocals&nbsp; Acoustic Guitar&nbsp;  Drums&nbsp;  Bass&nbsp;  Ukulele&nbsp;</p>
+            <hr>
+          </div>
+          <div>
+            <h5 class="card-body__title">Genre</h5>
+            <p class="card-body__details">Cheese Metal&nbsp;</p>
+            <hr>
+          </div>
+          <div>
+            <h5 class="card-body__title">Ability</h5>
+            <p class="card-body__details">Expert</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <br><br><br>
 
-  <h1>User Card</h1>
-  <hr>
-
-  <div class="card" style="width: 22rem;">
-  <div class="d-flex">
-    <div class="col-5">
-      <div class="text-light card-profile-bg h-100">
-        <div class="row justify-content-center">photo</div>
-        <div class="row justify-content-center">Jim</div>
-        <div class="row justify-content-center">Lisbon</div>
-        <div class="row justify-content-center">Age:</div>
-      </div>
-    </div>
-    <div class="col-7">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
