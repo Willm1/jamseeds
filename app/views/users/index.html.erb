@@ -20,18 +20,34 @@
             <div class="card-body w-100">
               <div>
                 <h5 class="card-body__title">Instruments</h5>
-                <p class="card-body__details"><%= user.instruments.name %></p>
+                <% if user.user_instruments.empty? %>
+                  <p class="card-body__details">Instruments yet to be added</p>
+                <% else %>
+                 <% instrument = [] %>
+                 <% user.user_instruments.first(3).each do |user_instrument| %>
+                  <% instrument << " #{user_instrument.instrument.name.capitalize}," %>
+                  <% end %>
+                   <p class="card-body__details"><%= instrument.join %></p>
+                <% end %>
                 <hr>
               </div>
               <div>
                 <h5 class="card-body__title">Genre</h5>
-                  <p class="card-body__details"><%= user.genres.name %>
-                </p>
+                  <% if user.user_genres.empty? %>
+                    <p class="card-body__details">Genre yet to be added</p>
+                  <% else %>
+                    <% genre = [] %>
+                    <% user.user_genres.first(3).each do |user_genre| %>
+                      <p class="card-body__details"><% genre << " #{user_genre.genre.name.capitalize}," %>
+                    <% end %>
+                    <%= genre.join %>
+                    </p>
+                  <% end %>
                 <hr>
               </div>
               <div>
                 <h5 class="card-body__title">Ability</h5>
-                <p class="card-body__details"><%= user.updated_ability %></p>
+                <p class="card-body__details"><%= user.updated_ability.capitalize %></p>
               </div>
             </div>
           </div>
