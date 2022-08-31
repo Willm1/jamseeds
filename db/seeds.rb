@@ -17,4 +17,29 @@ puts "Creating database"
   )
 end
 
+# Create 2 users for chatroom testing
+User.create!(
+  first_name: "Leith",
+  last_name: "Atia",
+  email: "leith@dolls.com",
+  postcode: Faker::Address.zip_code,
+  dob: Faker::Date.birthday(min_age: 18),
+  ability: rand(1..3),
+  image_url: Faker::Avatar.image,
+  password: "password",
+  password_confirmation: "password"
+)
+
+User.create!(
+  first_name: "Jim",
+  last_name: "Bob",
+  email: "jim@dolls.com",
+  postcode: Faker::Address.zip_code,
+  dob: Faker::Date.birthday(min_age: 18),
+  ability: rand(1..3),
+  image_url: Faker::Avatar.image,
+  password: "password",
+  password_confirmation: "password"
+)
+
 puts "finished creating database"
