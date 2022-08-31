@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users, only: %i[index show destroy] do
+  resources :users do
     resources :genres, only: %i[index show destroy]
   end
 

@@ -1,30 +1,28 @@
-<div class="form-inputs" data-controller="user-card">
-  <div class="d-none" data-user-card-target="content"><p>Personal details:</p>
+<div class="form-inputs">
 
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :postcode,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :gender,
-                as: :radio_buttons, collection: [['0', 'Female'], ['1', 'Male'], ['2', 'Non-binary'], ['3', 'Prefer not to say']], label_method: :second, value_method: :first,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :dob,
-                as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, discard_day: true, order: [:month, :year],
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-  </div>
 
+  <%= f.input :first_name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
+  <%= f.input :last_name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
+  <%= f.input :postcode,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
+  <%= f.input :gender,
+              as: :radio_buttons, collection: [['0', 'Female'], ['1', 'Male'], ['2', 'Non-binary'], ['3', 'Prefer not to say']], label_method: :second, value_method: :first,
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
+  <%= f.input :dob,
+              as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, discard_day: true, order: [:month, :year],
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
   <%= f.input :ability,
               as: :radio_buttons, collection: [['0', 'Beginner'], ['1', 'Intermediate'], ['2', 'Advanced'], ['3', 'Expert']], label_method: :second, value_method: :first,
               required: false,
@@ -41,11 +39,5 @@
   <%= f.input :password_confirmation,
               required: true,
               input_html: { autocomplete: "new-password" } %>
-  <%= f.simple_fields_for :user_instruments do |user_instrument| %>
-  <%= user_instrument.input :instrument,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" }%>
-  <% end %>
 
 </div>
