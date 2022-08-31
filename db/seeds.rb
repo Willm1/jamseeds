@@ -1,6 +1,7 @@
 require 'faker'
 
 UserInstrument.destroy_all
+UserGenre.destroy_all
 User.destroy_all
 
 puts "Creating database"
@@ -11,6 +12,7 @@ puts "Creating database"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
+    city: "Lisboa",
     postcode: Faker::Address.zip_code,
     dob: Faker::Date.birthday(min_age: 18),
     ability: rand(1..3),
@@ -25,6 +27,7 @@ User.create!(
   first_name: "Leith",
   last_name: "Atia",
   email: "leith@dolls.com",
+  city: "Lisboa",
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: rand(1..3),
@@ -37,6 +40,7 @@ User.create!(
   first_name: "Jim",
   last_name: "Bob",
   email: "jim@dolls.com",
+  city: "Lisboa",
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: rand(1..3),
