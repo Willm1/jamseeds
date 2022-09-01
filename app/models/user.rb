@@ -11,7 +11,22 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, through: :user_instruments
 
+
   include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :city ],
+    using: {
+      tsearch: { prefix: true } 
+    }
+
+  # pg_search_scope :global_search,
+  #   against: [:city],
+  #   associated_against: {
+  #     instrument: [:name]
+  #   },
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
