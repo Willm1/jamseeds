@@ -9,10 +9,17 @@ class UserGenresController < ApplicationController
     @user_genre.user = current_user
     authorize(@user_genre)
     if @user_genre.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @user_genre = UserGenre.find(params[:id])
+    authorize(@user_genre)
+    @user_genre.destroy
+    redirect_to profile_path
   end
 
   private

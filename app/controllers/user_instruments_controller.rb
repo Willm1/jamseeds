@@ -9,7 +9,7 @@ class UserInstrumentsController < ApplicationController
     @user_instrument.user = current_user
     authorize(@user_instrument)
     if @user_instrument.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class UserInstrumentsController < ApplicationController
 
     @user_instrument.destroy
 
-    redirect_to user_path(current_user)
+    redirect_to profile_path
   end
 
   private
