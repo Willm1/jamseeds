@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, through: :user_instruments
 
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :city ],
@@ -35,7 +36,6 @@ class User < ApplicationRecord
 
   def age
     return if dob.blank?
-
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
 
