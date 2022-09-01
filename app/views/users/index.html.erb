@@ -1,12 +1,51 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
-<div class="cont">
+<div class="container">
+  <h1>Users#index</h1>
+  <p>Find me in app/views/users/index.html.erb</p>
+  <div class="row">
     <% @users.each do |user| %>
-      <%= link_to user_path(user) do %>
+      <div class="col-4">
+        <div class="card card-jamseeds mb-5">
+          <img src="https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80" alt="">
 
-          <h2>Name:   <%= user.first_name %></h2>
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
 
-      <% end %>
+              <div class="card-body__image"></div>
+              <div>
+                  <%= link_to user_path(user) do %>
+
+                    <h2 class="card-title card-body__title">  <%= user.first_name %></h2>
+
+                  <% end %>
+                <p class="card-text"> <%= user.country %></p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between card-body__details">
+              <div>
+               <div>
+                <i class="fa-solid fa-guitar"></i>
+                <span>vocals, guitar</span>
+               </div>
+               <div>
+                <i class="fa-solid fa-music"></i>
+                <span>death metal</span>
+              </div>
+              </div>
+              <div>
+                <div>
+                  <i class="fa-solid fa-cake-candles"></i>
+                  <span><%= user.age %></span>
+                </div>
+                <div>
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span><%= user.ability %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
+  </div>
 </div>
