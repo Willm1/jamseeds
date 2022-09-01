@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
+    # @users = policy_scope(User).where.not(id: current_user)
     @users = policy_scope(User).all
+
   end
 
   def show
@@ -22,6 +24,12 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def profile
+    @user = User.find(params[:user_id])
+    authorize(@user)
+    @users = policy_scope(User)
   end
 
   private
