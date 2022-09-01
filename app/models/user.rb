@@ -11,12 +11,11 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, through: :user_instruments
 
-
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :city ],
     using: {
-      tsearch: { prefix: true } 
+      tsearch: { prefix: true }
     }
 
   # pg_search_scope :global_search,
@@ -29,14 +28,20 @@ class User < ApplicationRecord
   #   }
 
   def full_name
+    return if first_name.blank?
+
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def age
+    return if dob.blank?
+
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
 
   def updated_ability
+    return if ability.blank?
+
     if ability == 0
       return "Beginner"
     elsif ability == 1
