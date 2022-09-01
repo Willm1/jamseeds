@@ -3,11 +3,10 @@ class UsersController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "city ILIKE :query"
-      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
+      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%").where.not(id: current_user)
     else
-
-      # @users = policy_scope(User).where.not(id: current_user)
-      @users = policy_scope(User).all
+      @users = policy_scope(User).where.not(id: current_user)
+      # @users = policy_scope(User).all
     end
   end
 
@@ -35,7 +34,6 @@ class UsersController < ApplicationController
 
   def my_profile
     @user = current_user
-
     skip_authorization
   end
 
