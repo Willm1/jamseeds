@@ -1,6 +1,15 @@
+.chatroom-container {
+  height: 75vh;
+}
+
+.side-panel {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .chatroom {
   background: white;
-  // margin-top: 9px;
+  margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -19,9 +28,10 @@
     padding: 1rem;
   }
 
-  #new_message {
+  .new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+    margin-bottom: 0;
 
     .form-group {
       margin-bottom: 0;
