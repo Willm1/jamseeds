@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     resources :instruments, only: %i[index show destroy]
     resources :genres, only: %i[index show destroy]
   end
+
+  resources :chatrooms do
+    resources :messages, only: :create
+  end
 end

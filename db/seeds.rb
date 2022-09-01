@@ -1,5 +1,10 @@
 require 'faker'
 
+puts "Destroying entries"
+
+User.destroy_all
+Chatroom.destroy_all
+
 puts "Creating database"
 # generate 30 users
 
@@ -41,5 +46,8 @@ User.create!(
   password: "password",
   password_confirmation: "password"
 )
+
+puts "Creating chatroom"
+Chatroom.create!(name: "general", group: false)
 
 puts "finished creating database"
