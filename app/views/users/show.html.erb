@@ -3,20 +3,19 @@
   <p><%= link_to 'Back to profiles', users_path %></p>
 
 
+
   <h1><%= @user.full_name.capitalize %></h1>
   <p><%= @user.city %></p>
   <p><%= @user.updated_ability.capitalize %></p>
   <% if @user.dob.present? %>
   <p>Age: <%= @user.age %></p>
+
   <% end %>
 
   <% if current_user ==  @user %>
     <p><%= link_to 'Edit personal details', edit_user_path %></p>
   <% end %>
-
-
   <h6>Instruments:</h6>
-
   <% if @user.user_instruments.empty? %>
     <p>It's empty</p>
   <% else %>
@@ -30,7 +29,6 @@
       <% end %>
     </ul>
   <% end %>
-
   <% if current_user ==  @user %>
     <p><%= link_to 'Add instrument', new_user_instrument_path %></p>
   <% end %>
