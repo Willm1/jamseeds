@@ -3,19 +3,22 @@ require 'faker'
 UserInstrument.destroy_all
 UserGenre.destroy_all
 User.destroy_all
+Instrument.destroy_all
 
 puts "Creating database"
 # generate 30 users
 
+instruments = %w[Guitar Vocals Violin Piano Trumpet].map do |name|
+  Instrument.create!(name:)
+end
 
 30.times do
-  User.create!(
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    city: "Lisboa",
+    city: ["Lisboa", "London", "Paris", "Berlin", "Geneva"].sample,
     postcode: Faker::Address.zip_code,
-    city: Faker::Address.city,
     country: Faker::Address.country,
     dob: Faker::Date.birthday(min_age: 18),
     ability: rand(1..3),
@@ -23,7 +26,12 @@ puts "Creating database"
     password: "password",
     password_confirmation: "password"
   )
+
+  # Add random instruments to the user
+  instruments_num = (1..instruments.size).to_a.sample
+  user.instruments << instruments.sample(instruments_num)
 end
+
 
 # Create 2 users for chatroom testing
 User.create!(
@@ -38,6 +46,8 @@ User.create!(
   password: "password",
   password_confirmation: "password"
 )
+
+
 
 User.create!(
   first_name: "Jim",
