@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, through: :user_instruments
 
+  include PgSearch::Model
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
@@ -19,7 +20,6 @@ class User < ApplicationRecord
   def age
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
-
 
   def updated_ability
     if ability == 0

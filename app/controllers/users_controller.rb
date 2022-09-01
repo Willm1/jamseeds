@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
-    # @users = policy_scope(User).where.not(id: current_user)
-    @users = policy_scope(User).all
+    # if params[:query].present?
+    #   sql_query = <<~SQL
+    #     user.city ILIKE :query
+    #     OR user.user_instrument ILIKE :query
+    #   SQL
+    #   @users = policy_scope(User).joins(:instrument).where(sql_query, query: "%#{params[:query]}%")
+    # else
 
+      # @users = policy_scope(User).where.not(id: current_user)
+      @users = policy_scope(User).all
+    
   end
 
   def show
