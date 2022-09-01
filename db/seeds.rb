@@ -62,4 +62,17 @@ User.create!(
   password_confirmation: "password"
 )
 
+User.create!(
+  first_name: "George",
+  last_name: "Constanza",
+  email: "jim@dolls.com",
+  city: "Lisboa",
+  postcode: Faker::Address.zip_code,
+  dob: Faker::Date.birthday(min_age: 18),
+  ability: rand(1..3),
+  image_url: Faker::Avatar.image,
+  password: "password",
+  password_confirmation: "password"
+)
+
 puts "finished creating database"

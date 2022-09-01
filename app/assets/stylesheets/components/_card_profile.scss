@@ -9,8 +9,9 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   border-radius: 20px;
   overflow: hidden;
+  border: none;
 
-  
+
   // .card-img-top {
   //   height: 115px;
   //   background: rgb(2,0,36);
@@ -24,6 +25,15 @@
     height: 220px;
   }
 
+  .card__background {
+    height: 156px;
+    background-position: center;
+    background-image: url(https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+  }
   .card-body {
     padding: 18px 30px 30px 30px;
 
