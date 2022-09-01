@@ -1,17 +1,24 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-jamseeds border-bottom">
-  <div class="container">
-    <%= link_to user_profile_path(current_user), class: "navbar-brand" do %>
-      <h2 class="fw-bold mb-0">JamSeeds</h2>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
+  <div class="container-fluid">
+    <div>
+      <%= link_to user_signed_in? ? user_profile_path(current_user) : root_path do %>
+        <h2 class="fw-bold mb-0">
+          Jamseeds
+        </h2>
+      <% end %>
+    </div>
+    <div>
+      <%= form_with url: users_path, method: :get, class: "search-bar" do %>
+        <ul class="navbar-nav me-auto">
+          <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Instrument or Location" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </ul>
+      <% end %>
+    </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% if user_signed_in? %>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
             <%= link_to "My Profile", user_profile_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -20,17 +27,19 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Find musicians", users_path, class: "dropdown-item" %>
+              <%= link_to "Edit Profile", user_profile_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
+        </ul>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          </ul>
         <% end %>
-      </ul>
     </div>
   </div>
 </div>
