@@ -3,52 +3,35 @@
   color: $black;
 }
 
-.card-profile-small {
-  display: inline-flex;
-  flex-direction: row;
-  max-width: 400px;
-  max-height: 300px;
-  text-align: center;
+.card-jamseeds {
+
   transition: all .25s linear;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  border-radius: 20px;
+  overflow: hidden;
+  // .card-img-top {
+  //   height: 115px;
+  //   background: rgb(2,0,36);
+  //   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 23%, rgba(0,94,114,1) 100%);
+  //   background-image: url("https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
 
-  .card-bg {
-    min-width: 150px;
-    color: $white;
-    padding: 20px;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 23%, rgba(0,94,114,1) 100%);
+  // }
 
-    p {
-      margin: 0;
-      font-weight: 300;
-    }
+  .card-body {
+    padding: 18px 30px 30px 30px;
 
-    #profile-image {
-      width: 80px;
+
+    .card-body__image {
+      min-width: 80px;
       height: 80px;
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid #FFF;
-    }
+      background-image: url("https://images.unsplash.com/photo-1524689222688-670203109043?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1580&q=80");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right: 35px;
 
-    #profile-name {
-      font-size: 1rem;
-      padding-top: 10px;
-    }
-  }
-
-  .card-body {
-    padding: 20px;
-    text-align: left;
-
-    p {
-      margin: 0;
-    }
-
-    hr {
-      margin: 0 0 10px 0;
-      color: grey;
     }
 
     .card-body__title {
@@ -56,19 +39,25 @@
     }
 
     .card-body__details {
-      font-weight: 300;
-      padding-bottom: 5px;
-      display: block;
-      width: 200px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      i {
+        margin-right: 5px;
+      }
     }
+
+    // .card-body__details {
+    //   font-weight: 300;
+    //   padding-bottom: 5px;
+    //   display: block;
+    //   width: 200px;
+    //   overflow: hidden;
+    //   white-space: nowrap;
+    //   text-overflow: ellipsis;
+    // }
 
   }
 }
 
-.card-profile-small:hover{
+.card-jamseeds:hover{
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
               rgba(0, 0, 0, 0.07) 0px 2px 4px,
               rgba(0, 0, 0, 0.07) 0px 4px 8px,
