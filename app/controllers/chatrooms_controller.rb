@@ -5,7 +5,7 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
     @chatrooms = Chatroom.all
 
-    @users = User.all_execept(current_user)
+    @users = User.all_except(current_user)
     render 'index'
   end
 
@@ -18,7 +18,7 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 
-    @users = User.all_execept(current_user)
+    @users = User.all_except(current_user)
     render 'index'
   end
 

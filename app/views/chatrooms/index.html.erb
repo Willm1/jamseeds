@@ -2,11 +2,14 @@
 
 <div class="container-fluid row chatroom-container">
   <div class="col-md-2 col-sm-2 bg-dark text-light side-panel h-100">
-    <h5> <%= current_user.email %> </h5>
-    <h4> Users </h4>
+    <h5> Direct Messages </h5>
     <%= turbo_stream_from 'users' %>
     <div id="users">
-      <%= render @users %>
+      <ul>
+        <% @users.each do |user| %>
+          <li><%= link_to user.first_name, start_chat_path(id: user.id) %></li>
+        <% end %>
+      </ul>
     </div>
 
     <h4> Rooms </h4>

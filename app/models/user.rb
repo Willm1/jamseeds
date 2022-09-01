@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Don't display current user in chatroom
-  scope :all_execept, ->(user) { where.not(id: user) }
+  scope :all_except, ->(user) { where.not(id: user) }
   # Automatically add user to chatroom when they join
   after_create_commit { broadcast_append_to 'users' }
 

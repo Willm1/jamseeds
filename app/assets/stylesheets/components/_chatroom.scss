@@ -1,5 +1,11 @@
 .chatroom-container {
   height: 75vh;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .side-panel {
@@ -9,7 +15,6 @@
 
 .chatroom {
   background: white;
-  margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
