@@ -12,7 +12,9 @@ class Chatroom < ApplicationRecord
     single_room = Chatroom.create(name: room_name, group: false)
 
     users.each do |user|
-
+      ChatroomUser.create!(user_id: user.id, chatroom_id: single_room.id)
     end
+
+    return single_room
   end
 end
