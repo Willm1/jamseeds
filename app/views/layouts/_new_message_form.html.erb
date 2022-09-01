@@ -1,0 +1,13 @@
+<div class="form-group msg-form">
+  <%= simple_form_for [@single_room, @message],
+    html: {class: "d-flex"} do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message...",
+      autocomplete: 'off',
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

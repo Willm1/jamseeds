@@ -1,0 +1,6 @@
+<div>
+  <% unless message.chatroom.group %>
+    <h6 class="name"> <%= message.user.first_name %> </h6>
+  <% end %>
+  <%= message.content %>
+</div>
