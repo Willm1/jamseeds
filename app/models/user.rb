@@ -19,4 +19,17 @@ class User < ApplicationRecord
   def age
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
+
+
+  def updated_ability
+    if ability == 0
+      return "Beginner"
+    elsif ability == 1
+      return "intermediate"
+    elsif ability == 2
+      return "Advanced"
+    elsif ability == 3
+      return "Expert"
+    end
+  end
 end
