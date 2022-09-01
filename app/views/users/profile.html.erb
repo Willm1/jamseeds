@@ -1,0 +1,59 @@
+
+
+
+<div class="container">
+  <h1>Profile Page</h1>
+
+  <p><%= link_to 'Back to profiles', users_path %></p>
+
+
+  <h1><%= @user.full_name.capitalize %></h1>
+  <p><%= @user.city %></p>
+  <p><%= @user.updated_ability.capitalize %></p>
+  <% if @user.dob.present? %>
+  <p>Age: <%= @user.age %></p>
+  <% end %>
+
+
+  <% if current_user ==  @user %>
+    <p><%= link_to 'Edit personal details', edit_user_path(@user) %></p>
+  <% end %>
+
+
+  <h6>Instruments:</h6>
+
+  <% if @user.user_instruments.empty? %>
+    <p>It's empty</p>
+  <% else %>
+    <ul>
+      <% @user.user_instruments.each do |user_instrument| %>
+        <li>
+          <%= user_instrument.instrument.name %>
+          <%= link_to 'X', user_instrument_path(user_instrument),
+            data: { "turbo-method": :delete } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if current_user ==  @user %>
+    <p><%= link_to 'Add instrument', new_user_instrument_path %></p>
+  <% end %>
+
+  <h6>Genres:</h6>
+  <ul>
+    <% @user.user_genres.each do |user_genre| %>
+      <li>
+        <%= user_genre.genre.name %>
+        <%= link_to 'X', user_genre_path(user_genre),
+          data: { "turbo-method": :delete } %>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if current_user ==  @user %>
+    <p><%= link_to 'Add a genre', new_user_genre_path %></p>
+    <p><%= link_to 'Manage my account', edit_user_registration_path %></p>
+  <% end %>
+
+</div>

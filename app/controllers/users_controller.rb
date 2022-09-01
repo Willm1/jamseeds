@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = User.find(params[:user_id])
+    authorize(@user)
+    @users = policy_scope(User)
+  end
+
   private
 
   def user_params
