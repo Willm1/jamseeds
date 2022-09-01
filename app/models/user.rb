@@ -20,6 +20,7 @@ class User < ApplicationRecord
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
 
+
   def updated_ability
     if ability == 0
       return "Beginner"

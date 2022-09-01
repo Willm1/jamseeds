@@ -1,38 +1,42 @@
 
-
-<div class="container mt-5">
-
-  <div class="cards">
+<div class="container">
+  <h1>Users#index</h1>
+  <p>Find me in app/views/users/index.html.erb</p>
+  <div class="row">
     <% @users.each do |user| %>
-      <%= link_to user_path(user) do %>
+      <div class="col-4">
+        <div class="card card-jamseeds mb-5">
+          <img src="https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80" alt="">
 
-          <div class="card-profile-small">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
 
-            <div class="card-bg">
+              <div class="card-body__image"></div>
               <div>
-                <img src="https://image.shutterstock.com/image-photo/portrait-happy-mature-man-wearing-260nw-732336316.jpg" id="profile-image" alt="User profile image">
-                <h5 id="profile-name"><%=  user.first_name %></h5>
-                <p><%= "#{user.city}, Portugal" %></p>
-                <p><%= user.age %></p>
+                  <%= link_to user_path(user) do %>
+
+                    <h2 class="card-title card-body__title">  <%= user.first_name %></h2>
+
+                  <% end %>
+                <p class="card-text"> <%= "#{user.city}, #{user.country}" %></p>
               </div>
             </div>
-
-            <div class="card-body w-100">
+            <div class="d-flex justify-content-between card-body__details">
               <div>
-                <h5 class="card-body__title">Instruments</h5>
-                <% if user.user_instruments.empty? %>
-                  <p class="card-body__details">Instruments yet to be added</p>
-                <% else %>
-                 <% instrument = [] %>
-                 <% user.user_instruments.first(3).each do |user_instrument| %>
+               <div>
+                <i class="fa-solid fa-guitar"></i>
+                  <% if user.user_instruments.empty? %>
+                  <p class="card-body__details">Instruments to be added</p>
+                  <% else %>
+                  <% instrument = [] %>
+                  <% user.user_instruments.first(3).each do |user_instrument| %>
                   <% instrument << " #{user_instrument.instrument.name.capitalize}," %>
                   <% end %>
                    <p class="card-body__details"><%= instrument.join %></p>
                 <% end %>
-                <hr>
               </div>
-              <div>
-                <h5 class="card-body__title">Genre</h5>
+               <div>
+                <i class="fa-solid fa-music"></i>
                   <% if user.user_genres.empty? %>
                     <p class="card-body__details">Genre yet to be added</p>
                   <% else %>
@@ -43,33 +47,22 @@
                     <%= genre.join %>
                     </p>
                   <% end %>
-                <hr>
+              </div>
               </div>
               <div>
-                <h5 class="card-body__title">Ability</h5>
-                <p class="card-body__details"><%= user.updated_ability.capitalize %></p>
+                <div>
+                  <i class="fa-solid fa-cake-candles"></i>
+                  <span><%= user.age %></span>
+                </div>
+                <div>
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span><%= user.updated_ability %></span>
+                </div>
               </div>
             </div>
           </div>
-          <br><br><br>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-
- <!--
-    <% @users.each do |user| %>
-      <%= link_to user_path(user) do %>
-
-          <h2><%= user.first_name %></h2>
-          <p><%= user.city %></p>
-
-          <p><%= user.age %></p>
-          <p><%= user.updated_ability %></p>
-          <p><%= user.genres.name %></p>
-          <p><%= user.instruments.name %></p>
-
-      <% end %>
+        </div>
+      </div>
     <% end %>
-    -->
+  </div>
+</div>
