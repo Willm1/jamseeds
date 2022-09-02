@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <%= simple_form_for @user_instrument do |f| %>
+    <%= f.association :instrument,
+      collection: Instrument.where.not(id: current_user.instruments) %>
+    <%= f.submit %>
+  <% end %>
+
+  <p><%= link_to 'Back to profile', profile_path %></p>
+</div>

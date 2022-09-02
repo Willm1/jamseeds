@@ -1,11 +1,37 @@
-<h1>Users#show</h1>
 
+<div class="back-to-profile"><h6><%= link_to '<< Go to profiles', users_path %></h6></div>
+  <div class="container container d-flex justify-content-center mt-5">
+    <div class="show-card-width">
+        <div class="card padding_show__profile">
 
-<p><%= @user.email.capitalize %></p>
+    <h1><%= @user.full_name.capitalize %></h1>
+    <p><%= "#{@user.city}, Portugal" %></p>
+    <p><%= @user.updated_ability.capitalize %></p>
+    <% if @user.dob.present? %>
+      <p>Age: <%= @user.age %></p>
+    <% end %>
 
+    <h6>Instruments:</h6>
+    <% if @user.user_instruments.empty? %>
+      <p>It's empty</p>
+    <% else %>
+      <ul>
+        <% @user.user_instruments.each do |user_instrument| %>
+          <li>
+            <%= user_instrument.instrument.name %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
-<%= link_to 'Back to profiles', users_path %>
-
-<% if current_user ==  @user %>
-  <%= link_to 'Edit my profile', edit_user_registration_path %>
-<% end %>
+    <h6>Genres:</h6>
+    <ul>
+      <% @user.user_genres.each do |user_genre| %>
+        <li>
+          <%= user_genre.genre.name %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+   </div>
+</div>

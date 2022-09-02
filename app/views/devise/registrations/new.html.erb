@@ -1,16 +1,21 @@
 
-<div class="container">
-  <h2>Sign up</h2>
+<div class="container login-form d-flex justify-content-center mt-5">
+  <div class="login-form-width">
+    <div class="card login-form-card">
+      <h2>Sign up</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+        <%= f.error_notification %>
 
-    <%= render 'form', f: f %>
+        <%= render 'form', f: f %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+        <div class="form-actions d-flex align-items-center justify-content-between mt-3">
+          <%= f.button :submit, "Sign up" %>
+        <% end %>
 
   <%= render "devise/shared/links" %>
+        </div>
+
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class UserGenrePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -6,19 +6,15 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    return true
-  end
-
-  def chatroom
+  def new?
     record.user == user
   end
 
-  def update?
-    record == user
+  def create?
+    new?
   end
 
-  def profile?
-    true
+  def destroy?
+    new?
   end
 end
