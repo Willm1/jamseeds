@@ -1,0 +1,37 @@
+<h1>Chatrooms</h1>
+
+<div class="container-fluid row chatroom-container">
+  <div class="col-md-2 col-sm-2 bg-dark text-light side-panel h-100">
+    <h5> Direct Messages </h5>
+    <%= turbo_stream_from 'users' %>
+    <div id="users">
+      <ul>
+        <% @users.each do |user| %>
+          <li><%= link_to user.first_name, start_chat_path(id: user.id) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# <h4> Rooms </h4> %>
+    <%# <%= render 'layouts/new_chatroom_form' %>
+    <%# <%= turbo_stream_from 'chatrooms' %>
+    <%# <div id='chatrooms'> %>
+      <%# <%= render @chatrooms %>
+    <%# </div> %>
+  </div>
+
+  <div class="col-md-10 col-sm-10 chatroom h-100">
+    <div class="h-100">
+      <% if @single_room %>
+        <div class="messages">
+          <h2> <%= @user&.first_name || @single_room.name %> </h2>
+          <%= turbo_stream_from @single_room %>
+          <div id='messages'> <%= render @messages %> </div>
+        </div>
+        <div class="new_message">
+          <%= render 'layouts/new_message_form' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
