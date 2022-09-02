@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def chatroom
     @user = User.find(params[:id])
+    skip_authorization
     @users = User.all_except(current_user)
 
     @chatroom = Chatroom.new
