@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :instruments, through: :user_instruments
 
   has_one_attached :photo
+  has_one_attached :background
+
 
 
   include PgSearch::Model
@@ -47,7 +49,7 @@ class User < ApplicationRecord
     if ability == 0
       return "Beginner"
     elsif ability == 1
-      return "intermediate"
+      return "Intermediate"
     elsif ability == 2
       return "Advanced"
     elsif ability == 3
