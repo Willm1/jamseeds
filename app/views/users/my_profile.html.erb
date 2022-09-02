@@ -3,7 +3,12 @@
 
   <div class="profile d-flex">
     <div class="profile__image">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+      <%= cl_image_tag("yuchvvzxxkix4kknvys7",
+      :transformation=>[
+  {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+  {:radius=>"max"},
+  {:width=>200, :crop=>"scale"}
+  ])  %>
 
 
 
@@ -31,7 +36,7 @@
                 <h4>Instruments</h4>
               </div>
             <% if @user.user_instruments.empty? %>
-            <p>No instruments added</p>
+            <p>Instruments yet to be added</p>
           <% else %>
             <ul>
               <% @user.user_instruments.each do |user_instrument| %>
@@ -56,7 +61,7 @@
               <h4>Genres</h4>
             </div>
            <% if @user.user_genres.empty? %>
-            <p>No genres added</p>
+            <p>Genres yet to be added</p>
           <% else %>
           <ul>
             <% @user.user_genres.each do |user_genre| %>
