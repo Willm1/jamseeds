@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container mt-5">
   <%= simple_form_for @user_genre do |f| %>
     <%= f.association :genre,
       collection: Genre.where.not(id: current_user.genres) %>
     <%= f.submit %>
   <% end %>
+
+<p><%= link_to 'Back to profile', profile_path %></p>
+
 </div>

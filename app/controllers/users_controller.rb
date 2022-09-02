@@ -15,6 +15,28 @@ class UsersController < ApplicationController
     authorize(@user)
   end
 
+  def chatroom
+    # Get user the current user wants to chat with
+    @user = User.find(params[:id])
+    skip_authorization
+
+    @chatroom = Chatroom.new
+    @chatrooms = Chatroom.all
+    @chatroom_name = get_name(@user, current_user)
+    @single_room = Chatroom.where(name: @chatroom_name).first ||
+                   Chatroom.create_private_room([@user, current_user], @chatroom_name)
+
+    @message = Message.new
+    @messages = @single_room.messages.order(created_at: :asc)
+
+    # Get all users who current user has already started a chat with
+    # raise
+    # @users =
+    @users = User.all_except(current_user)
+
+    render 'chatrooms/index'
+  end
+
   def edit
     @user = User.find(params[:id])
     authorize(@user)
@@ -39,7 +61,12 @@ class UsersController < ApplicationController
 
   private
 
+  def get_name(user1, user2)
+    user = [user1, user2].sort
+    "private_#{user[0].id}_#{user[1].id}"
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :postcode, :gender, :dob, :ability, :city)
+    params.require(:user).permit(:first_name, :last_name, :postcode, :gender, :dob, :ability, :city, :photo, :background)
   end
 end

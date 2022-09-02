@@ -4,12 +4,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Don't display current user in chatroom
+  scope :all_except, ->(user) { where.not(id: user) }
+  # Automatically add user to chatroom when they join
+  after_create_commit { broadcast_append_to 'users' }
+
   has_many :user_instruments
   has_many :user_genres
   has_many :messages
   has_many :instruments, through: :user_instruments
   has_many :genres, through: :user_genres
+  has_many :chatroom_users
   has_many :instruments, through: :user_instruments
+
+  has_one_attached :photo
+  has_one_attached :background
+
 
 
   include PgSearch::Model
@@ -45,7 +55,7 @@ class User < ApplicationRecord
     if ability == 0
       return "Beginner"
     elsif ability == 1
-      return "intermediate"
+      return "Intermediate"
     elsif ability == 2
       return "Advanced"
     elsif ability == 3
