@@ -3,6 +3,11 @@
   <div class="container container d-flex justify-content-center mt-5">
     <div class="show-card-width">
       <div class="card padding_show__profile">
+      <div class="card__background"></div>
+          <div class="card-body">
+
+
+                <div class="card-body__imagelg"></div>
 
         <h1><%= @user.full_name.capitalize %></h1>
         <p><%= "#{@user.city}, Portugal" %></p>
@@ -35,5 +40,9 @@
 
         <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary" %>
     </div>
+
+    </div>
+    </div>
+
   </div>
 </div>
