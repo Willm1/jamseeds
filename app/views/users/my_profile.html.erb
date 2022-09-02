@@ -1,6 +1,6 @@
 <div class="container">
   <p class="mt-3"><%= link_to '<< Back to profiles', users_path %></p>
-  <h1>My Profile</h1>
+
   <div class="profile d-flex">
     <div class="profile__image">
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
@@ -15,11 +15,11 @@
       <%# <% end %>
       <div >
         <h5 class="mt-3">Age:</h5>
-        <p><% @user.age %></p>
+        <p><%= @user.age %></p>
       </div>
       <div>
         <h5>Experience:</h5>
-        <p><% @user.ability %></p>
+        <p><%= @user.ability %></p>
       </div>
       <button class="btn btn-primary d-block mt-4" ><%= link_to 'Edit personal details', edit_user_path(@user) %></button>
     </div>
