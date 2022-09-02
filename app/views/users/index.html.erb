@@ -14,7 +14,7 @@
 
                       <h2 class="card-title card-body__title">  <%= user.first_name %></h2>
 
-                  <p class="card-text"> <%= user.city %></p>
+                  <p class="card-text"> <%= "#{user.city}, Portugal" %></p>
               </div>
             </div>
               <div class="d-flex justify-content-between card-body__details">
@@ -22,7 +22,7 @@
                   <div>
                     <i class="fa-solid fa-guitar"></i>
                     <% if user.user_instruments.empty? %>
-                      <span class="card-body__details">Instruments</span>
+                      <span class="card-body__details">Instruments yet to be added</span>
                     <% else %>
                       <%= user.instruments.first(3).pluck(:name).map(&:capitalize).to_sentence %>
                     <% end %>
@@ -30,13 +30,13 @@
                   <div>
                     <i class="fa-solid fa-music"></i>
                       <% if user.user_genres.empty? %>
-                        <span class="card-body__details">Genre</span>
+                        <span class="card-body__details">Genres yet to be added</span>
                       <% else %>
                         <% genre = [] %>
-                        <% user.user_genres.first(3).each do |user_genre| %>
-                          <span class="card-body__details"><% genre << " #{user_genre.genre.name.capitalize}," %>
+                        <% user.genres.first(3).each do |user_genre| %>
+                          <span class="card-body__details"><% genre << " #{user_genre.name.capitalize}" %>
                         <% end %>
-                        <%= genre.join %>
+                        <%= genre.to_sentence %>
                         </span>
                       <% end %>
                   </div>
