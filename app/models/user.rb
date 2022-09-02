@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, through: :user_instruments
 
+  has_one_attached :photo
+
 
   include PgSearch::Model
   pg_search_scope :global_search,
