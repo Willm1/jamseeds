@@ -1,10 +1,12 @@
 <div class="banner banner-image vh-100">
+  div
     <div class="banner-buttons">
-      <a class="btn btn-flat" href="#">Login</a>
-      <a class="btn btn-flat" href="#">Signup</a>
+      <a class="btn btn-flat" <%= link_to "Log in", new_user_session_path %> </a>
+      <a class="btn btn-flat" <%= link_to "Sign Up", new_user_registration_path %> </a>
     </div>
   <div class="container">
   </div>
+
     <div class="banner-text">
       <h1>Jamseeds</h1>
       <p>Bringing musicians together</p>
