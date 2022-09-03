@@ -1,17 +1,25 @@
 <div>
   <% if @user.background.attached? %>
-    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
+    <div style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
   <% else %>
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
   <% end %>
 
-  <div class="profile__image rounded-circle" style="position:absolute; left: 200px; top: 120px;" >
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
-      <% else %>
-        <div class="card-body__imagelg"></div>
-      <% end %>
+  <div style="position:absolute; left: 200px; top: 120px;">
+    <div class="profile__image rounded-circle">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
+        <% else %>
+          <div class="card-body__imagelg"></div>
+        <% end %>
+        <div style="position:absolute; left: 35px; bottom: 1px;">
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fa-solid fa-user-pen"></i>
+          <% end %>
+        </div>
+    </div>
   </div>
+
 </div>
 
 <div class="container mt-5">
@@ -31,10 +39,11 @@
               </div>
             </div>
             <ul class="list-unstyled">
-              <li><%= @user.first_name.blank? ? "" : @user.full_name.capitalize %>
-              <li><%= @user.city.blank? ? "" : "#{@user.city}" %></li>
-              <li><%= "#{@user.age} years old" %></li>
-              <li><%= "#{@user.updated_ability}" %></li>
+              <li><i class="fa-regular fa-user p-2"></i>
+              <%= @user.first_name.blank? ? "" : @user.full_name %></li>
+              <li><i class="fa-solid fa-location-dot p-2"></i><%= @user.city.blank? ? "" : "#{@user.city}" %></li>
+              <li><i class="fa-solid fa-cake-candles p-2"></i><%= "#{@user.age} years old" %></li>
+              <li><i class="fa-sharp fa-solid fa-building-columns p-2"></i><%= "#{@user.updated_ability}" %></li>
             </ul>
 
           </div>
@@ -44,22 +53,15 @@
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-              <div class="d-flex justify-content-between">
                 <h4>Instruments</h4>
-                <li class="list-unstyled">
-                  <%= link_to new_user_instrument_path do %>
-                    <i class="fa-solid fa-user-pen"></i>
-                  <% end %>
-                </li>
-              </div>
             </div>
             <% if @user.user_instruments.empty? %>
               <p>Instruments yet to be added</p>
             <% else %>
               <ul class="list-unstyled">
                 <% @user.user_instruments.each do |user_instrument| %>
-                  <li>
-                    <%= user_instrument.instrument.name %>
+                  <li class="pt-1">
+                    <%= user_instrument.instrument.name.capitalize %>
                     <%= link_to user_instrument_path(user_instrument), data: { "turbo-method": :delete } do %>
                       <i class="fa-regular fa-square-minus p-1 ml-5"></i>
                     <% end %>
@@ -67,32 +69,32 @@
                 <% end %>
               </ul>
             <% end %>
-            <!--
-            <button class="btn btn-primary"><%= link_to 'Add instrument', new_user_instrument_path %></button>
-            -->
+          <div >
+            <%= simple_form_for @user_instrument do |f| %>
+              <%= f.association :instrument,
+                collection: Instrument.where.not(id: current_user.instruments), value: "some value" %>
+              <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
           </div>
         </div>
       </div>
+            <!--
+            <button class="btn btn-primary"><%= link_to 'Add instrument', new_user_instrument_path %></button>
+            -->
       <div class="col-4">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-              <div class="d-flex justify-content-between">
                 <h4>Genres</h4>
-                <li class="list-unstyled">
-                  <%= link_to new_user_genre_path do %>
-                    <i class="fa-solid fa-user-pen"></i>
-                  <% end %>
-                </li>
-              </div>
             </div>
             <% if @user.user_genres.empty? %>
               <p>Genres yet to be added</p>
             <% else %>
             <ul class="list-unstyled">
               <% @user.user_genres.each do |user_genre| %>
-              <li>
-                <%= user_genre.genre.name %>
+              <li class="pt-1">
+                <%= user_genre.genre.name.capitalize %>
                 <%= link_to user_genre_path(user_genre),
                 data: { "turbo-method": :delete } do %>
                   <i class="fa-regular fa-square-minus p-1 ml-5"></i>
@@ -101,12 +103,17 @@
               <% end %>
             </ul>
             <% end %>
-
+            <div style="position:absolute; bottom: 30px;">
+              <%= simple_form_for @user_genre do |f| %>
+                <%= f.association :genre,
+                  collection: Genre.where.not(id: current_user.genres) %>
+                <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
+              <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-   <p class="mt-3"><%= link_to '<< Back to profiles', users_path %></p>
   </div>
 </div>
