@@ -17,5 +17,9 @@
         <%= render "shared/navbar"  %>
    <% end %>
     <%= yield %>
+
+   <% if controller_name != 'chatrooms' && action_name != 'chatroom' %>
+        <%= render "shared/footer"  %>
+   <% end %>
   </body>
 </html>

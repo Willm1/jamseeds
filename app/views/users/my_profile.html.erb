@@ -18,6 +18,14 @@
           <% end %>
         </div>
     </div>
+    <div class="d-none">
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :photo, as: :file %>
+        <div class="form-actions">
+          <%= f.button :submit, "Update" %>
+        </div>
+  <% end %>
+    </div>
   </div>
 
 </div>
