@@ -57,6 +57,8 @@ class UsersController < ApplicationController
   def my_profile
     @user = current_user
     skip_authorization
+    @user_instrument = UserInstrument.new(user: current_user)
+    @user_genre = UserGenre.new(user: current_user)
   end
 
   private
