@@ -5,7 +5,7 @@
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
   <% end %>
 
-  <div class="profile__image" style="position:absolute; left: 200px; top: 120px;" >
+  <div class="profile__image rounded-circle" style="position:absolute; left: 200px; top: 120px;" >
     <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
       <% else %>
@@ -23,14 +23,14 @@
             <div class="card-title border-bottom">
               <div class="d-flex justify-content-between">
                 <h4>Your details</h4>
-                <li>
+                <li class="list-unstyled">
                   <%= link_to edit_user_path(@user) do %>
                     <i class="fa-solid fa-user-pen"></i>
                   <% end %>
                 </li>
               </div>
             </div>
-            <ul>
+            <ul class="list-unstyled">
               <li><%= @user.first_name.blank? ? "" : @user.full_name.capitalize %>
               <li><%= @user.city.blank? ? "" : "#{@user.city}" %></li>
               <li><%= "#{@user.age} years old" %></li>
@@ -46,7 +46,7 @@
             <div class="card-title border-bottom">
               <div class="d-flex justify-content-between">
                 <h4>Instruments</h4>
-                <li>
+                <li class="list-unstyled">
                   <%= link_to new_user_instrument_path do %>
                     <i class="fa-solid fa-user-pen"></i>
                   <% end %>
@@ -56,12 +56,13 @@
             <% if @user.user_instruments.empty? %>
               <p>Instruments yet to be added</p>
             <% else %>
-              <ul>
+              <ul class="list-unstyled">
                 <% @user.user_instruments.each do |user_instrument| %>
                   <li>
                     <%= user_instrument.instrument.name %>
-                    <%= link_to 'X', user_instrument_path(user_instrument),
-                    data: { "turbo-method": :delete } %>
+                    <%= link_to user_instrument_path(user_instrument), data: { "turbo-method": :delete } do %>
+                      <i class="fa-regular fa-square-minus p-1 ml-5"></i>
+                    <% end %>
                   </li>
                 <% end %>
               </ul>
@@ -78,7 +79,7 @@
             <div class="card-title border-bottom">
               <div class="d-flex justify-content-between">
                 <h4>Genres</h4>
-                <li>
+                <li class="list-unstyled">
                   <%= link_to new_user_genre_path do %>
                     <i class="fa-solid fa-user-pen"></i>
                   <% end %>
@@ -88,12 +89,14 @@
             <% if @user.user_genres.empty? %>
               <p>Genres yet to be added</p>
             <% else %>
-            <ul>
+            <ul class="list-unstyled">
               <% @user.user_genres.each do |user_genre| %>
               <li>
                 <%= user_genre.genre.name %>
-                <%= link_to 'X', user_genre_path(user_genre),
-                data: { "turbo-method": :delete } %>
+                <%= link_to user_genre_path(user_genre),
+                data: { "turbo-method": :delete } do %>
+                  <i class="fa-regular fa-square-minus p-1 ml-5"></i>
+                <% end %>
               </li>
               <% end %>
             </ul>
