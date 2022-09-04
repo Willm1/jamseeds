@@ -5,7 +5,7 @@
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
   <% end %>
 
-  <div style="position:absolute; left: 200px; top: 120px;">
+  <div style="position:absolute; left: 200px; top: 150px;">
     <div class="profile__image rounded-circle">
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
@@ -33,7 +33,7 @@
 <div class="container mt-5">
   <div class="profile d-flex">
     <div class="row w-100">
-      <div class="col-4">
+      <div class="col-12 col-lg-6">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6 col-lg-3">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
@@ -90,7 +90,7 @@
             <!--
             <button class="btn btn-primary"><%= link_to 'Add instrument', new_user_instrument_path %></button>
             -->
-      <div class="col-4">
+      <div class="col-6 col-lg-3">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
