@@ -28,7 +28,7 @@ end
     country: Faker::Address.country,
     dob: Faker::Date.birthday(min_age: 18),
     ability: rand(1..3),
-    bio: Faker::Lorem.sentence(word_count: 35),
+    bio: Faker::Lorem.sentence(word_count: 75),
     image_url: Faker::Avatar.image,
     password: "password",
     password_confirmation: "password"
