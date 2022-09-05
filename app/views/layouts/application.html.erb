@@ -17,12 +17,12 @@
           <%= render "shared/flashes" %>
           <%= render "shared/navbar"  %>
     <% end %>
-    
-    <div class="main-content">
+
+    <div class="main-content container">
       <%= yield %>
     </div>
-   
-    <div class="container"><%= yield %></div>
+
+ 
 
     <% if controller_name != 'chatrooms' && action_name != 'chatroom' %>
           <%= render "shared/footer"  %>
