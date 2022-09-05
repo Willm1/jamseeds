@@ -1,4 +1,8 @@
-<div class="message-box">
+
+<div class="d-flex flex-column align-items-<%= message.user == current_user ? 'end' : 'start' %>">
   <h6><%= message.user.first_name %></h6>
-  <%= message.content %>
+  <div class="bg-<%= message.user == current_user ? 'light' : 'dark' %> pt-2 pb-2 ps-2 pe-2
+              <%= message.user == current_user ? 'text-dark' : 'text-light' %> rounded">
+    <%= message.content %>
+  </div>
 </div>
