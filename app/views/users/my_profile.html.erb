@@ -1,18 +1,19 @@
+
 <div>
   <% if @user.background.attached? %>
-    <div style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
+    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
   <% else %>
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
   <% end %>
 
-  <div style="position:absolute; left: 200px; top: 150px;">
-    <div class="profile__image rounded-circle">
+  <div style="position:absolute; left: 200px; top: 300px;">
+    <div class="profile__image">
       <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
+        <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", class: 'rounded-circle border-2 border' %>
         <% else %>
           <div class="card-body__imagelg"></div>
         <% end %>
-        <div style="position:absolute; left: 35px; bottom: 1px;">
+        <div style="position:absolute; right: 35px; bottom: 1px;">
           <%= link_to edit_user_path(@user) do %>
             <i class="fa-solid fa-user-pen"></i>
           <% end %>
@@ -30,8 +31,8 @@
 
 </div>
 
-<div class="container mt-5">
-  <div class="profile d-flex">
+<div class="container margin-top">
+  <div class="profile d-flex mt-5">
     <div class="row w-100">
       <div class="col-12 col-lg-6">
         <div class="card card-jamseeds h-100">
