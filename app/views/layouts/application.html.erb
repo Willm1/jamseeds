@@ -13,7 +13,6 @@
   <body>
 
     <% if controller_name != 'pages' && action_name != 'home' %>
-        <div class="d-flex flex-column min-vh-100">
           <%= render "shared/flashes" %>
           <%= render "shared/navbar"  %>
     <% end %>
@@ -22,7 +21,7 @@
       <%= yield %>
     </div>
 
- 
+
 
     <% if controller_name != 'chatrooms' && action_name != 'chatroom' %>
           <%= render "shared/footer"  %>
