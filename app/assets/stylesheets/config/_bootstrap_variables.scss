@@ -24,7 +24,7 @@ $border-radius-lg: 3px;
 $border-radius-sm: 3px;
 
 // Links
-$link-color: $light-green !default;
+$link-color: $gray !default;
 $link-decoration: none !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;

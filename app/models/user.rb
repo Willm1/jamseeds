@@ -62,4 +62,10 @@ class User < ApplicationRecord
       return "Expert"
     end
   end
+
+  def online?
+    return if last_login_at.nil?
+
+    last_login_at > 10.minutes.ago
+  end
 end
