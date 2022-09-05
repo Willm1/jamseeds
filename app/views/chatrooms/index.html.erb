@@ -27,7 +27,7 @@
         <div class="messages-container">
           <h2> <%= @user&.first_name || @single_room.name %> </h2>
           <%= turbo_stream_from @single_room %>
-          <div id='messages'> <%= render @messages %> </div>
+          <div id="messages" data-controller="scroll"> <%= render @messages %> </div>
         </div>
         <div class="new_message">
           <%= render 'layouts/new_message_form' %>
