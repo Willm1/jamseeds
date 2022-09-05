@@ -1,7 +1,7 @@
   <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
     <div style="position:absolute; left: 350px; top: 300px;">
       <div class="profile__image">
-        <div class="card-body__imagelg"></div>
+        <div class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>"></div>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
       <div>
         <li><i class="fa-solid fa-guitar p-3 left-margin"></i>
           <% if @user.user_instruments.empty? %>
-            <p>User yet to add instrument</p>
+            User yet to add instrument
           <% else %>
             <% instrument = @user.user_instruments.map do |user_instrument| %>
               <% user_instrument.instrument.name.capitalize %>
@@ -32,7 +32,7 @@
         </li>
         <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin"></i>
           <% if @user.user_genres.empty? %>
-            <p>User yet to add instrument</p>
+            User yet to add instrument
           <% else %>
             <% genre = @user.user_genres.map do |user_genre| %>
               <% user_genre.genre.name.capitalize %>
@@ -43,7 +43,7 @@
       </div>
       </ul>
       <div>
-        <h5 class="card-body-title"><%= "About #{@user.first_name.capitalize}"  %></h5>
+        <h5 class="card-body-title fw-semibold"><%= "About #{@user.first_name.capitalize}"  %></h5>
         <p><%= @user.bio %></p>
         <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
       </div>
