@@ -4,7 +4,7 @@
 }
 
 .card-jamseeds {
-
+  color: black;
   transition: all .25s linear;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   border-radius: 20px;
@@ -32,22 +32,24 @@
   }
   .card-body {
     padding: 18px 30px 30px 30px;
+    font-size: 14px;
+
 
     .card-body__image {
       min-width: 80px;
       height: 80px;
-      object-fit: cover;
       border-radius: 50%;
       border: 3px solid #FFF;
       background-image: url("https://images.unsplash.com/photo-1524689222688-670203109043?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1580&q=80");
       background-repeat: no-repeat;
       background-size: cover;
       margin-right: 35px;
+      transition: .5s;
     }
 
     .card-body-title {
       font-weight: 600;
-      color: $black;
+
     }
 
     .card-body__details {
@@ -70,12 +72,18 @@
 }
 
 .card-jamseeds:hover{
+  color: #465741;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
               rgba(0, 0, 0, 0.07) 0px 2px 4px,
               rgba(0, 0, 0, 0.07) 0px 4px 8px,
               rgba(0, 0, 0, 0.07) 0px 8px 16px,
               rgba(0, 0, 0, 0.07) 0px 16px 32px,
               rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  .card-body__image {
+    border-color: #465741;
+    transition: .5s;
+  }
+
 }
 
 .card-body__imagelg {

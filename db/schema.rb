@@ -114,6 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_153810) do
     t.date "dob"
     t.integer "ability"
     t.string "image_url"
+    t.string "address"
     t.string "city"
     t.string "country"
     t.text "bio"
