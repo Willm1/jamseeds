@@ -1,5 +1,5 @@
   <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
-    <div style="position:absolute; left: 200px; top: 300px;">
+    <div style="position:absolute; left: 350px; top: 300px;">
       <div class="profile__image">
         <div class="card-body__imagelg"></div>
       </div>
@@ -7,21 +7,20 @@
 
 
   <div class="container margin-top w-75">
-    <div class="card card-jamseeds h-100">
-      <div class="card-body">
-        <div class="card-title border-bottom">
+    <div class="card card-jamseeds h-100 card-margin">
+
+        <div class="border-bottom">
            <h1><%= @user.first_name.blank? ? "" : @user.full_name %></h1>
         </div>
-      </div>
-      <ul class="list-unstyled d-flex justify-content-around">
-      <div>
 
-        <li><i class="fa-solid fa-location-dot p-2 ml-2"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
-        <li><i class="fa-solid fa-cake-candles p-2 ml-2"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
-        <li><i class="fa-sharp fa-solid fa-building-columns p-2 ml-2"></i><%= "#{@user.updated_ability.capitalize}" %></li>
+      <ul class="list-unstyled d-flex mt-3">
+      <div>
+        <li><i class="fa-solid fa-location-dot p-3"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
+        <li><i class="fa-solid fa-cake-candles p-3"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
+        <li><i class="fa-sharp fa-solid fa-building-columns p-3"></i><%= "#{@user.updated_ability.capitalize}" %></li>
       </div>
-      <div class=>
-        <li><i class="fa-solid fa-guitar p-2"></i>
+      <div>
+        <li><i class="fa-solid fa-guitar p-3 left-margin"></i>
           <% if @user.user_instruments.empty? %>
             <p>User yet to add instrument</p>
           <% else %>
@@ -31,7 +30,7 @@
               <%= instrument.to_sentence %>
           <% end %>
         </li>
-        <li><i class="fa-solid fa-music p-2"></i>
+        <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin"></i>
           <% if @user.user_genres.empty? %>
             <p>User yet to add instrument</p>
           <% else %>
@@ -43,10 +42,10 @@
         </li>
       </div>
       </ul>
-      <div class="p-4">
+      <div>
         <h5><%= "About #{@user.first_name.capitalize}"  %></h5>
         <p><%= @user.bio %></p>
-        <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary" %>
+        <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
       </div>
     </div>
 
