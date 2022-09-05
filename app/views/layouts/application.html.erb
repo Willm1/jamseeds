@@ -15,11 +15,18 @@
     <% if controller_name != 'pages' && action_name != 'home' %>
           <%= render "shared/flashes" %>
           <%= render "shared/navbar"  %>
+    <% else %>
+          <%= render "shared/flashes" %>
+          <%= render "shared/navbar"  %>
     <% end %>
 
-    <div class="main-content container">
-      <%= yield %>
-    </div>
+     <% if controller_name != 'pages' && action_name != 'home' %>
+      <div class="main-content container">
+        <%= yield %>
+      </div>
+    <% else %>
+        <%= yield %>
+    <% end %>
 
 
 
