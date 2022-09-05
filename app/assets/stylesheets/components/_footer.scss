@@ -1,6 +1,6 @@
 .footer {
   background-color: $white;
-  border-top: 2px solid grey;
+  border-top: 2px solid $footer-gray;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -9,7 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: $footer-gray;
+
 
   p {
     margin: 0;

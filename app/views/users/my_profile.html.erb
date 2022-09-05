@@ -39,7 +39,7 @@
           <div class="card-body">
             <div class="card-title border-bottom">
               <div class="d-flex justify-content-between">
-                <h4>Your details</h4>
+                <h4 class="card-body-title">Your details</h4>
                 <li class="list-unstyled">
                   <%= link_to edit_user_path(@user) do %>
                     <i class="fa-solid fa-user-pen"></i>
@@ -54,7 +54,7 @@
               <li><i class="fa-solid fa-cake-candles p-2"></i><%= "#{@user.age} years old" %></li>
               <li><i class="fa-sharp fa-solid fa-building-columns p-2"></i><%= "#{@user.updated_ability}" %></li>
             </ul>
-            <h5>About Me</h5>
+            <h5 class="card-body-title">About Me</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum tellus non metus consectetur laoreet. Sed in interdum neque. Nam dapibus ipsum urna, quis molestie ipsum laoreet nec. Donec pellentesque pharetra consectetur. Sed dapibus, est.</p>
 
           </div>
@@ -64,7 +64,7 @@
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-                <h4>Instruments</h4>
+                <h4 class="card-body-title">Instruments</h4>
             </div>
             <% if @user.user_instruments.empty? %>
               <p>Instruments yet to be added</p>
@@ -83,7 +83,7 @@
           <div style="position:absolute; bottom: 30px;" >
             <%= simple_form_for @user_instrument do |f| %>
               <%= f.association :instrument,
-                collection: Instrument.where.not(id: current_user.instruments), value: "some value" %>
+                collection: Instrument.where.not(id: current_user.instruments), class: "card-body-title" %>
               <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
             <% end %>
           </div>
@@ -97,7 +97,7 @@
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-                <h4>Genres</h4>
+                <h4 class="card-body-title">Genres</h4>
             </div>
             <% if @user.user_genres.empty? %>
               <p>Genres yet to be added</p>
@@ -117,7 +117,7 @@
             <div style="position:absolute; bottom: 30px;">
               <%= simple_form_for @user_genre do |f| %>
                 <%= f.association :genre,
-                  collection: Genre.where.not(id: current_user.genres) %>
+                  collection: Genre.where.not(id: current_user.genres), class: "card-body-title" %>
                 <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
               <% end %>
               </div>
