@@ -1,18 +1,19 @@
+
 <div>
   <% if @user.background.attached? %>
-    <div style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
+    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
   <% else %>
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
   <% end %>
 
-  <div style="position:absolute; left: 200px; top: 120px;">
-    <div class="profile__image rounded-circle">
+  <div style="position:absolute; left: 300px; top: 300px;">
+    <div class="profile__image">
       <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key,  width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max %>
+        <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", class: 'rounded-circle border-2 border' %>
         <% else %>
           <div class="card-body__imagelg"></div>
         <% end %>
-        <div style="position:absolute; left: 35px; bottom: 1px;">
+        <div style="position:absolute; right: 65px; bottom: 1px;">
           <%= link_to edit_user_path(@user) do %>
             <i class="fa-solid fa-user-pen"></i>
           <% end %>
@@ -30,10 +31,10 @@
 
 </div>
 
-<div class="container mt-5">
-  <div class="profile d-flex">
+<div class="container margin-top">
+  <div class="profile d-flex mt-5">
     <div class="row w-100">
-      <div class="col-4">
+      <div class="col-12 col-lg-6">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
@@ -53,11 +54,13 @@
               <li><i class="fa-solid fa-cake-candles p-2"></i><%= "#{@user.age} years old" %></li>
               <li><i class="fa-sharp fa-solid fa-building-columns p-2"></i><%= "#{@user.updated_ability}" %></li>
             </ul>
+            <h5>About Me</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum tellus non metus consectetur laoreet. Sed in interdum neque. Nam dapibus ipsum urna, quis molestie ipsum laoreet nec. Donec pellentesque pharetra consectetur. Sed dapibus, est.</p>
 
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6 col-lg-3">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
@@ -77,7 +80,7 @@
                 <% end %>
               </ul>
             <% end %>
-          <div >
+          <div style="position:absolute; bottom: 30px;" >
             <%= simple_form_for @user_instrument do |f| %>
               <%= f.association :instrument,
                 collection: Instrument.where.not(id: current_user.instruments), value: "some value" %>
@@ -90,7 +93,7 @@
             <!--
             <button class="btn btn-primary"><%= link_to 'Add instrument', new_user_instrument_path %></button>
             -->
-      <div class="col-4">
+      <div class="col-6 col-lg-3">
         <div class="card card-jamseeds h-100">
           <div class="card-body">
             <div class="card-title border-bottom">

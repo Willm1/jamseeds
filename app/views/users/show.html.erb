@@ -1,48 +1,55 @@
+  <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
+    <div style="position:absolute; left: 350px; top: 300px;">
+      <div class="profile__image">
+        <div class="card-body__imagelg"></div>
+      </div>
+    </div>
 
-<div class="back-to-profile"><h6><%= link_to '<< Go to profiles', users_path %></h6></div>
-  <div class="container container d-flex justify-content-center mt-5">
-    <div class="show-card-width">
-      <div class="card padding_show__profile">
-      <div class="card__background"></div>
-          <div class="card-body">
 
+  <div class="container margin-top w-75">
+    <div class="card card-jamseeds h-100 card-margin">
 
-                <div class="card-body__imagelg"></div>
+        <div class="border-bottom">
+           <h1><%= @user.first_name.blank? ? "" : @user.full_name %></h1>
+        </div>
 
-        <h1><%= @user.full_name.capitalize %></h1>
-        <p><%= "#{@user.city}, Portugal" %></p>
-        <p><%= @user.updated_ability.capitalize %></p>
-        <% if @user.dob.present? %>
-          <p>Age: <%= @user.age %></p>
-        <% end %>
-
-        <h6>Instruments:</h6>
-        <% if @user.user_instruments.empty? %>
-          <p>It's empty</p>
-        <% else %>
-          <ul>
-            <% @user.user_instruments.each do |user_instrument| %>
-              <li>
-                <%= user_instrument.instrument.name %>
-              </li>
+      <ul class="list-unstyled d-flex mt-3">
+      <div>
+        <li><i class="fa-solid fa-location-dot p-3"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
+        <li><i class="fa-solid fa-cake-candles p-3"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
+        <li><i class="fa-sharp fa-solid fa-building-columns p-3"></i><%= "#{@user.updated_ability.capitalize}" %></li>
+      </div>
+      <div>
+        <li><i class="fa-solid fa-guitar p-3 left-margin"></i>
+          <% if @user.user_instruments.empty? %>
+            <p>User yet to add instrument</p>
+          <% else %>
+            <% instrument = @user.user_instruments.map do |user_instrument| %>
+              <% user_instrument.instrument.name.capitalize %>
             <% end %>
-          </ul>
-        <% end %>
-
-        <h6>Genres:</h6>
-        <ul>
-          <% @user.user_genres.each do |user_genre| %>
-            <li>
-              <%= user_genre.genre.name %>
-            </li>
+              <%= instrument.to_sentence %>
           <% end %>
-        </ul>
-
-        <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary" %>
-    </div>
-
-    </div>
+        </li>
+        <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin"></i>
+          <% if @user.user_genres.empty? %>
+            <p>User yet to add instrument</p>
+          <% else %>
+            <% genre = @user.user_genres.map do |user_genre| %>
+              <% user_genre.genre.name.capitalize %>
+            <% end %>
+              <%= genre.to_sentence %>
+          <% end %>
+        </li>
+      </div>
+      </ul>
+      <div>
+        <h5><%= "About #{@user.first_name.capitalize}"  %></h5>
+        <p><%= @user.bio %></p>
+        <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
+      </div>
     </div>
 
   </div>
-</div>
+
+
+<div class="back-to-profile mb-5"><h6><%= link_to 'Back to profiles', users_path %></h6></div>

@@ -23,11 +23,12 @@ end
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    city: ["Lisboa", "Porto", "Faro", "Sagre", "Braga"].sample,
+    city: ["Lisboa", "Porto", "Faro", "Sagres", "Braga"].sample,
     postcode: Faker::Address.zip_code,
     country: Faker::Address.country,
     dob: Faker::Date.birthday(min_age: 18),
     ability: rand(1..3),
+    bio: Faker::Lorem.sentence(word_count: 35),
     image_url: Faker::Avatar.image,
     password: "password",
     password_confirmation: "password"
@@ -50,6 +51,7 @@ User.create!(
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: rand(1..3),
+  bio: Faker::Lorem.sentence(word_count: 75),
   image_url: Faker::Avatar.image,
   password: "password",
   password_confirmation: "password"
@@ -63,6 +65,7 @@ User.create!(
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: rand(1..3),
+  bio: Faker::Lorem.sentence(word_count: 75),
   image_url: Faker::Avatar.image,
   password: "password",
   password_confirmation: "password"
@@ -76,6 +79,7 @@ User.create!(
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: rand(1..3),
+  bio: Faker::Lorem.sentence(word_count: 75),
   image_url: Faker::Avatar.image,
   password: "password",
   password_confirmation: "password"
