@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def chatroom
     # Get user the current user wants to chat with
     @user = User.find(params[:id])
+    @users = User.new
     skip_authorization
 
     @chatroom = Chatroom.new
@@ -29,9 +30,6 @@ class UsersController < ApplicationController
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 
-    # Get all users who current user has already started a chat with
-    # raise
-    # @users =
     @users = User.all_except(current_user)
 
     render 'chatrooms/index'

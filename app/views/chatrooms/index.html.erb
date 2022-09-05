@@ -12,6 +12,7 @@
       </ul>
     </div>
 
+    <%# Section below commented out for group chat %>
     <%# <h4> Rooms </h4> %>
     <%# <%= render 'layouts/new_chatroom_form' %>
     <%# <%= turbo_stream_from 'chatrooms' %>
@@ -23,7 +24,7 @@
   <div class="col-md-10 col-sm-10 chatroom h-100">
     <div class="h-100">
       <% if @single_room %>
-        <div class="messages">
+        <div class="messages-container">
           <h2> <%= @user&.first_name || @single_room.name %> </h2>
           <%= turbo_stream_from @single_room %>
           <div id='messages'> <%= render @messages %> </div>
