@@ -1,3 +1,15 @@
+<style>
+  // Styling for current_user
+  <%= ".msg-#{current_user&.id}" %> {
+    background-color: #007bff !important;
+    padding: 10px;
+  }
+  <%= ".container-#{current_user&.id}" %> {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
+
 <h3 class="pt-2 pb-2"><%= @user.first_name %></h3>
 
 <div class="container-fluid row chatroom-container">
