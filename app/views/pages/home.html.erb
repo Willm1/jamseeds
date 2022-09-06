@@ -44,7 +44,7 @@
 <div class="row">
     <h2 class="mb-4 mt-5 text-black fw-semibold">New Members</h2>
     <% @users.each do |user| %>
-      <div class="col-4">
+      <div class="col-xs-12 col-md-6 col-lg-4">
         <%= link_to user_path(user) do %>
         <div class="card card-jamseeds mb-5">
           <% if user.background.attached? %>
