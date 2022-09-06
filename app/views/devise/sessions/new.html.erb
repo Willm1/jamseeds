@@ -1,4 +1,4 @@
-<div class="container login-form d-flex justify-content-center mt-5">
+<div class="login-form d-flex justify-content-center mt-5">
   <div class="login-form-width">
     <div class="card login-form-card">
     <h2>Log in</h2>
@@ -15,7 +15,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
-        <div class="form-actions">
+        <div class="form-actions btn btn-secondary">
           <%= f.button :submit, "Log in" %>
         </div>
       <% end %>
