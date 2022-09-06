@@ -5,7 +5,7 @@ class ChatroomsController < ApplicationController
     skip_policy_scope
     @chatroom = Chatroom.new
     @chatrooms = Chatroom.all
-
+    @user = ChatroomUser.where(chatroom_id: current_user.chatroom_users.first.chatroom_id).last.user
     @users = User.all_except(current_user)
   end
 
@@ -20,6 +20,8 @@ class ChatroomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
 
     @users = User.all_except(current_user)
+    # start_chat_path(id: @user.id)
+
     render 'index'
   end
 

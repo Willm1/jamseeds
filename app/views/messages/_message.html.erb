@@ -1,8 +1,9 @@
 
-<div class="d-flex flex-column align-items-<%= message.user == current_user ? 'end' : 'start' %>">
-  <h6><%= message.user.first_name %></h6>
-  <div class="bg-<%= message.user == current_user ? 'light' : 'dark' %> pt-2 pb-2 ps-2 pe-2
-              <%= message.user == current_user ? 'text-dark' : 'text-light' %> rounded">
+<div class="d-flex flex-column pt-3 align-items-<%= message.user == user ? 'end' : 'start' %>">
+    <h6 class="mb-0"><%= message.user.first_name %></h6>
+      <small><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></small>
+  <div class="bg-<%= message.user == user ? 'light' : 'dark' %> pb-2 ps-2 pe-2
+              <%= message.user == user ? 'text-dark' : 'text-light' %> rounded">
     <%= message.content %>
   </div>
 </div>
