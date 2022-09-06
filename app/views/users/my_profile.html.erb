@@ -3,7 +3,7 @@
   <% if @user.background.attached? %>
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
   <% else %>
-    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
+    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
   <% end %>
 
   <div style="position:absolute; left: 250px; top: 300px;">
@@ -11,7 +11,7 @@
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", class: 'rounded-circle border-2 border' %>
         <% else %>
-          <div class="card-body__imagelg"></div>
+          <img class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>" src="<%= @user.profile_img_url %>" alt="">
         <% end %>
         <div style="position:absolute; right: 65px; bottom: 1px;">
           <%= link_to edit_user_path(@user) do %>
