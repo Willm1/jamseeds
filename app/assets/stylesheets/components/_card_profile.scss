@@ -24,14 +24,12 @@
 
   .card-background {
     height: 156px;
-    background-position: center;
-    background-image: url(https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
   }
+  
   .card-body {
     padding: 18px 30px 30px 30px;
-  
+
 
 
     .card-body__image {
