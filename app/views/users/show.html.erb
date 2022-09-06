@@ -17,9 +17,10 @@
       <div>
         <li><i class="fa-solid fa-location-dot p-3"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
         <li><i class="fa-solid fa-cake-candles p-3"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
-        <li><i class="fa-sharp fa-solid fa-building-columns p-3"></i><%= "#{@user.updated_ability.capitalize}" %></li>
+        <li><i class="fa-solid fa-venus-mars p-3"></i><%= @user.gender.blank? ? "" : "#{@user.gender}" %></li>
       </div>
       <div>
+        <li><i class="fa-sharp fa-solid fa-building-columns p-3 left-margin"></i><%= "#{@user.updated_ability.capitalize}" %></li>
         <li><i class="fa-solid fa-guitar p-3 left-margin"></i>
           <% if @user.user_instruments.empty? %>
             User yet to add instrument
