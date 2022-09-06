@@ -76,6 +76,7 @@ user_seeds['results'].each do |user_seed|
                       postcode: Faker::Address.zip_code,
                       country: "Portugal",
                       dob: Faker::Date.birthday(min_age: 18),
+                      gender: user_seed['gender'],
                       ability: rand(1..3),
                       bio: Faker::Lorem.sentence(word_count: 75),
                       profile_img_url: user_seed['picture']['medium'],
