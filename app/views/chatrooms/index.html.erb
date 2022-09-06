@@ -2,13 +2,20 @@
   // Styling for current_user
   <%= ".msg-#{current_user&.id}" %> {
     padding: 10px;
-    background-color: #007bff !important;
+    background-color: black !important;
   }
 
   <%= ".container-#{current_user&.id}" %> {
     display: flex;
     justify-content: flex-end;
   }
+
+  <%= ".container-#{current_user&.id} .message-box" %> {
+    padding: 10px;
+    background-color: #313D2E !important;
+    color: white;
+  }
+
 </style>
 
 <h3 class="pt-2 pb-2"><%= @user.first_name %></h3>
