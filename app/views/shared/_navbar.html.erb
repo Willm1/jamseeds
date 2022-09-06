@@ -30,7 +30,14 @@
             <%= link_to "Messages", start_chat_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://i2.wp.com/imagens.formigaeletrica.com.br/2014/02/gty_jason_alexander_george_costanza_jt_120223_wmain.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+            <%# User profile photo %>
+            <% if current_user.photo.key %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag current_user.profile_img_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Find Musicians", users_path, class: "dropdown-item" %>
               <%= link_to "Edit Profile", profile_path, class: "dropdown-item" %>
