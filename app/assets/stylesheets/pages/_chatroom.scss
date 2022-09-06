@@ -1,6 +1,15 @@
 .chatroom-container {
   height: 70vh;
 
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:$secondary;
+}
+
   ul {
     list-style-type: none;
     margin: 0;
