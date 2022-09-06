@@ -1,9 +1,10 @@
 <style>
   // Styling for current_user
   <%= ".msg-#{current_user&.id}" %> {
-    background-color: #007bff !important;
     padding: 10px;
+    background-color: #007bff !important;
   }
+
   <%= ".container-#{current_user&.id}" %> {
     display: flex;
     justify-content: flex-end;
