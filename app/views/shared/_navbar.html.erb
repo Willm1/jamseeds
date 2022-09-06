@@ -18,12 +18,12 @@
     </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto align-items-center">
           <li class="nav-item">
-            <%= link_to "Find Musicians", users_path, class: "nav-link" %>
+            <strong>Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name   %></strong>
           </li>
-          <li class="nav-item">
 
+          <li class="nav-item">
             <%= link_to "My Profile", profile_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -32,6 +32,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://i2.wp.com/imagens.formigaeletrica.com.br/2014/02/gty_jason_alexander_george_costanza_jt_120223_wmain.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Find Musicians", users_path, class: "dropdown-item" %>
               <%= link_to "Edit Profile", profile_path, class: "dropdown-item" %>
               <%= link_to 'Manage my account', edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
