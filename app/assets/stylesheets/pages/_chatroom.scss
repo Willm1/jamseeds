@@ -20,6 +20,10 @@
 .side-panel {
   overflow-y: scroll;
   overflow-x: hidden;
+
+  a {
+    color: lightgray;
+  }
 }
 
 .chatroom {
