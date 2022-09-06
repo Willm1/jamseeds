@@ -1,11 +1,118 @@
-
+<div class="container">
+</div>
 
 <div class="banner banner-image">
+  <ul class="d-flex justify-content-end list-unstyled">
+    <li class="nav-item">
+      <%= link_to "Login", new_user_session_path, class: "nav-link p-2 m-3 text-white" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link p-2 m-3 text-white btn btn-primary btn-box-shadow" %>
+    </li>
+  </ul>
   <div class ="d-flex justify-content-between">
-    <div class="p-5">
+    <div class="banner-padding">
       <h1>Jamseeds</h1>
       <p>Bringing <strong>Musicians</strong> together!</p>
-      <a class="btn btn-primary" href="#">Search now</a>
+      <a class="av-link p-2 text-white btn btn-primary btn-box-shadow" href="#">Search now</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+
+  <div class =" mt-4">
+    <div class="d-flex justify-content-around">
+      <div class="text-center p-3">
+        <i class="fa-solid fa-magnifying-glass-location p-5 fa-2xl"></i>
+        <h5>Find your people</h5>
+      </div>
+      <div class="text-center p-3">
+        <i class="fa-solid fa-users p-5 fa-2xl"></i>
+        <h5>Organise meet ups</h5>
+      </div>
+      <div class="text-center p-3">
+        <i class="fa-solid fa-music p-5 fa-2xl"></i>
+        <h5>Play the music you want</h5>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row">
+    <h2 class="mb-4 mt-5 text-black fw-semibold">New Members</h2>
+    <% @users.each do |user| %>
+      <div class="col-4">
+        <%= link_to user_path(user) do %>
+        <div class="card card-jamseeds mb-5">
+          <%# <img src="https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80" alt="" class="image__height"> %>
+          <div class="card-background"></div>
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="card-body__image <%= user.online? ? 'border green-border' : '' %>"></div>
+                <div>
+                  <h2 class="card-title card-body-title">  <%= user.first_name %></h2>
+                  <p class="card-text"> <%= "#{user.city}, Portugal" %></p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between card-body__details">
+                <div>
+                  <div>
+                    <i class="fa-solid fa-guitar"></i>
+                    <% if user.user_instruments.empty? %>
+                      <span class="card-body__details">Instruments yet to be added</span>
+                    <% else %>
+                      <%= user.instruments.first(3).pluck(:name).map(&:capitalize).to_sentence %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-music"></i>
+                      <% if user.user_genres.empty? %>
+                        <span class="card-body__details">Genres yet to be added</span>
+                      <% else %>
+                        <% genre = [] %>
+                        <% user.genres.first(3).each do |user_genre| %>
+                          <span class="card-body__details"><% genre << " #{user_genre.name.capitalize}" %>
+                        <% end %>
+                        <%= genre.to_sentence %>
+                        </span>
+                      <% end %>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span><%= user.age %></span>
+                  </div>
+                  <div>
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span><%= user.updated_ability %></span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <div class="d-flex align-items-center justify-content-center mt-5 margin-bottom">
+    <div>
+      <h2 class="mb-4 text-black text-black fw-semibold">Our Story</h2>
+      <p>Since 2022, we've been on a mission to be the go-to place for musicians in Portugal wanting to join a band and for bands trying to find band members in their area.</p>
+      <p>Whether you are a skilled professional with a great track record who wants to play 100 shows a year, or you just picked up an instrument last week, you can be sure to feel right at home on our website. Find band members and bands looking for musicians in your area and grow your musical network quick. </p>
+      <div class="btn btn-primary text-white">
+        <%= link_to 'Join today', users_path, class: "text-white" %>
+      </div>
+    </div>
+    <div class="w-75">
+      <img src="assets/drum.jpg" class="img-thumbnail rounded img-fluid p-3">
     </div>
   </div>
 </div>
