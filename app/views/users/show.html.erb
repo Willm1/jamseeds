@@ -1,7 +1,7 @@
-  <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("v7e9nvq7cuv28vpn5nj0.jpg", height: 300, crop: :fill) %>')"></div>
+  <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
     <div style="position:absolute; left: 350px; top: 300px;">
       <div class="profile__image">
-        <div class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>"></div>
+        <img class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>" src="<%= @user.profile_img_url %>" alt="">
       </div>
     </div>
 
