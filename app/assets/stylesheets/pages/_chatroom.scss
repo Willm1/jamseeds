@@ -29,8 +29,8 @@
 
   .messages-container {
     height: 100%;
-    overflow-y: scroll;
-    padding: 2rem;
+    overflow: scroll;
+    padding: 1rem;
   }
 
   .new_message {
@@ -42,4 +42,12 @@
       margin-bottom: 0;
     }
   }
+}
+
+.message-box {
+  display: table;
+  background-color: rgb(194, 194, 194);
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
