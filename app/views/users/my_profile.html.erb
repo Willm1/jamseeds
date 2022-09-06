@@ -3,13 +3,15 @@
   <% if @user.background.attached? %>
     <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, height: 300, crop: :fill %>')"></div>
   <% else %>
-    <div style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
+    <div style="height: 300px; object-fit: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
   <% end %>
 
   <div style="position:absolute; left: 250px; top: 300px;">
+
+    <%# User profile image %>
     <div class="profile__image">
       <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", class: 'rounded-circle border-2 border' %>
+        <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", crop: :thumb, class: 'rounded-circle border-2 border' %>
         <% else %>
           <img class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>" src="<%= @user.profile_img_url %>" alt="">
         <% end %>
