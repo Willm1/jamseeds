@@ -6,8 +6,6 @@ UserInstrument.destroy_all
 UserGenre.destroy_all
 User.destroy_all
 Instrument.destroy_all
-Chatroom.destroy_all
-ChatroomUser.destroy_all
 
 puts "Creating database"
 # generate 30 users
