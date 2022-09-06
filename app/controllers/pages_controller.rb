@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     redirect_to users_path if user_signed_in?
+    @users = User.all.last(6)
   end
 
   def css_template
