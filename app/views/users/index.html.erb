@@ -6,10 +6,9 @@
         <%= link_to user_path(user) do %>
         <div class="card card-jamseeds mb-5">
           <img class="card-background" src="<%= user.banner_img_url %>" alt="">
-          <%# <div class="card-background"></div> %>
           <div class="card-body">
             <div class="d-flex align-items-center mb-3">
-              <div class="card-body__image <%= user.online? ? 'border green-border' : '' %>"></div>
+            <img class="card-body__image <%= user.online? ? 'border green-border' : '' %>" src="<%= user.profile_img_url%>" alt="">
                 <div>
                   <h2 class="card-title card-body-title">  <%= user.first_name %></h2>
                   <p class="card-text"> <%= "#{user.city}, Portugal" %></p>

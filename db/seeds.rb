@@ -64,6 +64,10 @@ user_seeds = JSON.parse(user_serialized)
 puts "Creating database"
 # generate 30 users
 
+# Shuffle profile background images
+bg_imgs.shuffle
+img_counter = 0
+
 user_seeds['results'].each do |user_seed|
   user = User.create!(first_name: user_seed['name']['first'],
                       last_name: user_seed['name']['last'],
@@ -75,9 +79,11 @@ user_seeds['results'].each do |user_seed|
                       ability: rand(1..3),
                       bio: Faker::Lorem.sentence(word_count: 75),
                       profile_img_url: user_seed['picture']['medium'],
-                      banner_img_url: bg_imgs.sample,
+                      banner_img_url: bg_imgs[img_counter],
                       password: "password",
                       password_confirmation: "password")
+
+  img_counter += 1
 
   # Add random instruments to the user
   instruments_num = (1..instruments.size - 1).to_a.sample
