@@ -17,7 +17,14 @@ class UsersController < ApplicationController
 
   def chatroom
     # Get user the current user wants to chat with
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      # If user clicks on messages tab then find a user who they have already started a chat with
+      user_chatroom = ChatroomUser.where(chatroom_id: current_user.chatroom_users.first.chatroom_id)
+      @user = user_chatroom.where.not(user_id: current_user.id).first.user
+    end
+
     @users = User.new
     skip_authorization
 

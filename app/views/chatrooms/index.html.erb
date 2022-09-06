@@ -1,8 +1,28 @@
-<h1>Chatrooms</h1>
+<style>
+  // Styling for current_user
+  <%= ".msg-#{current_user&.id}" %> {
+    padding: 10px;
+    background-color: black !important;
+  }
+
+  <%= ".container-#{current_user&.id}" %> {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  <%= ".container-#{current_user&.id} .message-box" %> {
+    padding: 10px;
+    background-color: #313D2E !important;
+    color: white;
+  }
+
+</style>
+
+<h3 class="pt-2 pb-2"><%= @user.first_name %></h3>
 
 <div class="container-fluid row chatroom-container">
   <div class="col-md-2 col-sm-2 bg-dark text-light side-panel h-100">
-    <h5> Direct Messages </h5>
+    <h5 class="pt-3"> Direct Messages </h5>
     <%= turbo_stream_from 'users' %>
     <div id="users">
       <ul>
@@ -21,11 +41,10 @@
     <%# </div> %>
   </div>
 
-  <div class="col-md-10 col-sm-10 chatroom h-100">
+  <div class="col-md-10 col-sm-10 chatroom h-100 pe-0">
     <div class="h-100">
       <% if @single_room %>
         <div class="messages-container">
-          <h2> <%= @user&.first_name || @single_room.name %> </h2>
           <%= turbo_stream_from @single_room %>
           <div id="messages" data-controller="scroll"> <%= render @messages %> </div>
         </div>
