@@ -1,5 +1,7 @@
-  <div style="height: 380px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
-    <div style="position:absolute; left: 350px; top: 300px;">
+  <div class="">
+    <%= render "shared/banner" %>
+  </div>
+    <div style="position:absolute; left: 350px; top: 390px;">
 
       <%# User profile image %>
       <div class="profile__image">
@@ -52,7 +54,9 @@
       </div>
     </div>
 
+
     <%= link_to users_path do %>
       <i class="fa-solid fa-arrow-left mt-4 ms-2"></i>
     <% end %>
+
   </div>
