@@ -1,4 +1,4 @@
-  <div style="height: 300px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
+  <div style="height: 380px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
     <div style="position:absolute; left: 350px; top: 300px;">
 
       <%# User profile image %>
@@ -35,7 +35,7 @@
         </li>
         <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin"></i>
           <% if @user.user_genres.empty? %>
-            User yet to add instrument
+            User yet to add genre
           <% else %>
             <% genre = @user.user_genres.map do |user_genre| %>
               <% user_genre.genre.name.capitalize %>
@@ -55,5 +55,4 @@
     <%= link_to users_path do %>
       <i class="fa-solid fa-arrow-left mt-4 ms-2"></i>
     <% end %>
-
   </div>
