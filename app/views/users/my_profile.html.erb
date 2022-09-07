@@ -2,7 +2,7 @@
 <div>
   <%= render "shared/banner" %>
 
-  <div style="position:absolute; left: 250px; top: 390px;">
+  <div style="position:absolute; left: 400px; top: 390px;">
 
     <%# User profile image %>
     <div class="profile__image">
@@ -42,11 +42,11 @@
               </div>
             </div>
             <ul class="list-unstyled">
-              <li><i class="fa-regular fa-user p-2"></i>
+              <li><i class="fa-regular fa-user p-2 icon-width-md"></i>
               <%= @user.first_name.blank? ? "" : @user.full_name %></li>
-              <li><i class="fa-solid fa-location-dot p-2"></i><%= @user.city.blank? ? "" : "#{@user.city}" %></li>
-              <li><i class="fa-solid fa-cake-candles p-2"></i><%= "#{@user.age} years old" %></li>
-              <li><i class="fa-sharp fa-solid fa-building-columns p-2"></i><%= "#{@user.updated_ability}" %></li>
+              <li><i class="fa-solid fa-location-dot p-2 icon-width-md"></i><%= @user.city.blank? ? "" : "#{@user.city}" %></li>
+              <li><i class="fa-solid fa-cake-candles p-2 icon-width-md"></i><%= "#{@user.age} years old" %></li>
+              <li><i class="fa-sharp fa-solid fa-building-columns p-2 icon-width-md"></i><%= "#{@user.updated_ability}" %></li>
             </ul>
             <h5 class="text-black fw-semibold">About Me</h5>
             <p> <%= current_user.bio %> </p>

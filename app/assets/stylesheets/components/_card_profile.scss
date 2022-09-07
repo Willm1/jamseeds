@@ -112,9 +112,17 @@
 }
 
 .green-border {
-  border: 3px solid #72ff72 !important;
+  border: 2.5px solid #72ff72 !important;
 }
 
 .page-margin-top {
   margin-top: 130px;
+}
+
+.icon-width-sm {
+  min-width: 20px;
+}
+
+.icon-width-md {
+  min-width: 35px;
 }
