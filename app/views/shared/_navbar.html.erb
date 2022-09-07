@@ -19,16 +19,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto align-items-center">
-          <li class="nav-item" id="navbarDropdown" data-bs-toggle="dropdown">          
-            <i class="fa fa-bars pe-3 text-black"></i>
-
-          <%# <li class="nav-item">
-            <%= link_to "My Profile", profile_path, class: "nav-link"
-          </li> %>
-          <%# <li class="nav-item">
-            <%= link_to "Messages", start_chat_path, class: "nav-link"
-          </li> %>
-          <li class="nav-item dropdown">
+          <li class="nav-item" id="navbarDropdown" data-bs-toggle="dropdown">
+            <i class="fa fa-bars pe-3 text-white"></i>
+              <li class="nav-item dropdown">
 
             <%# User profile photo %>
             <% if current_user.photo.key %>
