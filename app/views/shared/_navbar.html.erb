@@ -19,9 +19,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto align-items-center">
-          <li class="nav-item">
+          <li class="nav-item" id="navbarDropdown" data-bs-toggle="dropdown">
             <%# <strong class="pe-4">Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name </strong> %>
-            <i class="fa fa-bars pe-3" id="navbarDropdown", aria-hidden="true"></i>
+            <i class="fa fa-bars pe-3 text-black"></i>
           </li>
 
           <%# <li class="nav-item">
@@ -34,9 +34,9 @@
 
             <%# User profile photo %>
             <% if current_user.photo.key %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar" %>
             <% else %>
-              <%= image_tag current_user.profile_img_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag current_user.profile_img_url, class: "avatar" %>
             <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
