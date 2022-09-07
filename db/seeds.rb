@@ -64,6 +64,25 @@ user_seeds = JSON.parse(user_serialized)
 puts "Creating database"
 # generate 30 users
 
+User.create!(
+  first_name: "Leith",
+  last_name: "Atia",
+  email: "leith.atia@gmail.com",
+  city: "Lisboa",
+  gender: "Male",
+  postcode: Faker::Address.zip_code,
+  dob: Faker::Date.birthday(min_age: 18),
+  ability: rand(1..3),
+  bio: "Hi, I'm currently studying web development and in my free time I enjoy playing the guitar and singing.
+        Would love to find someone to jam with or start a band. I love pistachios and horror films!",
+  profile_img_url: "https://media-exp1.licdn.com/dms/image/C4E03AQE_fx4TIUanbQ/profile-displayphoto-shrink_200_200/0/1516878852850?e=2147483647&v=beta&t=c2YLkvCFb6CX56Q_fkknGwWSY3ekJaT3ufbY4gYTKoQ",
+  banner_img_url: "https://images.pexels.com/photos/346726/pexels-photo-346726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  password: "password",
+  password_confirmation: "password"
+)
+
+
+
 # Shuffle profile background images
 bg_imgs.shuffle
 img_counter = 0
@@ -95,22 +114,7 @@ user_seeds['results'].each do |user_seed|
 end
 
 # Create users for chatroom testing
-User.create!(
-  first_name: "Leith",
-  last_name: "Atia",
-  email: "leith.atia@gmail.com",
-  city: "Lisboa",
-  gender: "Male",
-  postcode: Faker::Address.zip_code,
-  dob: Faker::Date.birthday(min_age: 18),
-  ability: rand(1..3),
-  bio: "Hi, I'm currently studying web development and in my free time I enjoy playing the guitar and singing.
-        Would love to find someone to jam with or start a band. I love pistachios and horror films!",
-  profile_img_url: "https://media-exp1.licdn.com/dms/image/C4E03AQE_fx4TIUanbQ/profile-displayphoto-shrink_200_200/0/1516878852850?e=2147483647&v=beta&t=c2YLkvCFb6CX56Q_fkknGwWSY3ekJaT3ufbY4gYTKoQ",
-  banner_img_url: "https://images.pexels.com/photos/346726/pexels-photo-346726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  password: "password",
-  password_confirmation: "password"
-)
+
 
 User.create!(
   first_name: "Jim",
@@ -129,9 +133,9 @@ User.create!(
 )
 
 User.create!(
-  first_name: "George",
-  last_name: "Constanza",
-  email: "george@dolls.com",
+  first_name: "Pedro",
+  last_name: "Ferreira",
+  email: "pedro@gmail.com",
   city: "Lisboa",
   gender: "Male",
   postcode: Faker::Address.zip_code,
