@@ -3,7 +3,7 @@
   <% if @user.background.attached? %>
     <div style="height: 300px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, crop: :fill %>')"></div>
   <% else %>
-    <div style="height: 300px; object-fit: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
+    <div style="height: 300px; background: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
   <% end %>
 
   <div style="position:absolute; left: 250px; top: 300px;">

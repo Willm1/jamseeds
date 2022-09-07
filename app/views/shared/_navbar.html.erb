@@ -20,15 +20,15 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto align-items-center">
           <li class="nav-item">
-            <strong>Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name   %></strong>
+            <strong class="pe-4">Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name %></strong>
           </li>
 
-          <li class="nav-item">
-            <%= link_to "My Profile", profile_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", start_chat_path, class: "nav-link" %>
-          </li>
+          <%# <li class="nav-item">
+            <%= link_to "My Profile", profile_path, class: "nav-link"
+          </li> %>
+          <%# <li class="nav-item">
+            <%= link_to "Messages", start_chat_path, class: "nav-link"
+          </li> %>
           <li class="nav-item dropdown">
 
             <%# User profile photo %>
@@ -39,8 +39,9 @@
             <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Find Musicians", users_path, class: "dropdown-item" %>
-              <%= link_to "Edit Profile", profile_path, class: "dropdown-item" %>
+              <%# <%= link_to "Find Musicians", users_path, class: "dropdown-item" %>
+              <%= link_to "Messages", start_chat_path, class: "dropdown-item" %>
+              <%= link_to "My Profile", profile_path, class: "dropdown-item" %>
               <%= link_to 'Manage my account', edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

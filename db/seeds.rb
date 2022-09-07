@@ -101,7 +101,7 @@ User.create!(
   email: "leith.atia@gmail.com",
   city: "Lisboa",
   postcode: Faker::Address.zip_code,
-  dob: Faker::Date.birthday(min_age: 18),
+  dob: 45,
   ability: rand(1..3),
   bio: "Hi, I'm currently studying web development and in my free time I enjoy playing the guitar and singing.
         Would love to find someone to jam with or start a band. I love pistachios and horror films!",
