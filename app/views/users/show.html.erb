@@ -1,7 +1,7 @@
   <div class="">
     <%= render "shared/banner" %>
   </div>
-    <div style="position:absolute; left: 350px; top: 390px;">
+    <div style="position:absolute; left: 450px; top: 390px;">
 
       <%# User profile image %>
       <div class="profile__image">
@@ -19,13 +19,13 @@
 
       <ul class="list-unstyled d-flex mt-3">
       <div>
-        <li><i class="fa-solid fa-location-dot p-3"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
-        <li><i class="fa-solid fa-cake-candles p-3"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
-        <li><i class="fa-solid fa-venus-mars p-3"></i><%= @user.gender.blank? ? "" : "#{@user.gender.capitalize}" %></li>
+        <li><i class="fa-solid fa-location-dot p-3 icon-width"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
+        <li><i class="fa-solid fa-cake-candles p-3 icon-width"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
+        <li><i class="fa-solid fa-venus-mars p-3 icon-width"></i><%= @user.gender.blank? ? "" : "#{@user.gender.capitalize}" %></li>
       </div>
       <div>
-        <li><i class="fa-sharp fa-solid fa-building-columns p-3 left-margin"></i><%= "#{@user.updated_ability.capitalize}" %></li>
-        <li><i class="fa-solid fa-guitar p-3 left-margin"></i>
+        <li><i class="fa-sharp fa-solid fa-building-columns p-3 left-margin icon-width"></i><%= "#{@user.updated_ability.capitalize}" %></li>
+        <li><i class="fa-solid fa-guitar p-3 left-margin icon-width"></i>
           <% if @user.user_instruments.empty? %>
             User yet to add instrument
           <% else %>
@@ -35,7 +35,7 @@
               <%= instrument.to_sentence %>
           <% end %>
         </li>
-        <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin"></i>
+        <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin icon-width"></i>
           <% if @user.user_genres.empty? %>
             User yet to add genre
           <% else %>
