@@ -6,6 +6,5 @@ class PagesController < ApplicationController
     @users = User.all.last(4)
   end
 
-  def css_template
-  end
+  
 end
