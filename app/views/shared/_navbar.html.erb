@@ -12,17 +12,15 @@
       <%= form_with url: users_path, method: :get, class: "search-bar" do %>
         <ul class="navbar-nav me-auto">
           <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Search by City" %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
         </ul>
       <% end %>
     </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto align-items-center">
-          <li class="nav-item" id="navbarDropdown" data-bs-toggle="dropdown">
-            <%# <strong class="pe-4">Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name </strong> %>
+          <li class="nav-item" id="navbarDropdown" data-bs-toggle="dropdown">          
             <i class="fa fa-bars pe-3 text-black"></i>
-          </li>
 
           <%# <li class="nav-item">
             <%= link_to "My Profile", profile_path, class: "nav-link"

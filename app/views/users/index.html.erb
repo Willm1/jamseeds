@@ -2,7 +2,7 @@
 
   <div class="row">
     <% @users.each do |user| %>
-      <div class="col-4">
+      <div class="col-3">
         <%= link_to user_path(user) do %>
         <div class="card card-jamseeds mb-5">
           <img class="card-background" src="<%= user.banner_img_url %>" alt="">
