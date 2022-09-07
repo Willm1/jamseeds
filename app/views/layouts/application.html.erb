@@ -11,13 +11,8 @@
   </head>
 
   <body>
-
     <% if controller_name != 'pages' && action_name != 'home' %>
-          <%# <%= render "shared/flashes" %> %>
-          <%= render "shared/navbar"  %>
-    <% end %>
-
-     <% if controller_name != 'pages' && action_name != 'home' %>
+      <%= render "shared/navbar"  %>
       <div class="main-content container">
         <%= yield %>
       </div>
@@ -25,7 +20,7 @@
         <%= yield %>
     <% end %>
 
-    <% if controller_name != 'chatrooms' && action_name != 'chatroom' %>
+    <% unless action_name == 'chatroom' || devise_controller? %>
           <%= render "shared/footer"  %>
     <% end %>
   </body>
