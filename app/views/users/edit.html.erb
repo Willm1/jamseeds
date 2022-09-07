@@ -40,10 +40,10 @@
         <%= f.input :photo, as: :file %>
         <%= f.input :background, as: :file %>
         <div class="form-actions btn btn-primary mt-2">
-          <%= f.button :submit, "Update" %>
+          <%= f.button :submit, "Update", class: "text-white"  %>
         </div>
       <% end %>
-      <div class="mt-3 mb-3">
+      <div class="my-4">
         <p><%= link_to 'Back to profile', profile_path %></p>
       </div>
     </div>

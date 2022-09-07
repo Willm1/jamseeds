@@ -63,6 +63,20 @@ class User < ApplicationRecord
     end
   end
 
+  def updated_gender
+    return if gender.blank?
+
+    if gender == 0
+      return "Female"
+    elsif gender == 1
+      return "Male"
+    elsif gender == 2
+      return "Non-binary"
+    elsif gender == 3
+      return "Prefer not to say"
+    end
+  end
+
   def online?
     return if last_login_at.nil?
 

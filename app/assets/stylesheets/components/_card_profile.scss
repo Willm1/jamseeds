@@ -33,7 +33,7 @@
 
 
     .card-body__image {
-     
+
       min-width: 80px;
       height: 80px;
       border-radius: 50%;
@@ -53,6 +53,10 @@
     }
 
     .card-body__details {
+      width: 80px;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
       i {
         margin-right: 5px;
       }
@@ -103,10 +107,14 @@
 }
 
 .margin-top-bottom {
-  margin-bottom: 100px;
-  margin-top: 140px;
+  margin-bottom: 80px;
+  margin-top: 80px;
 }
 
 .green-border {
-  border: 4px solid rgb(23, 164, 44) !important;
+  border: 3px solid #72ff72 !important;
+}
+
+.page-margin-top {
+  margin-top: 130px;
 }
