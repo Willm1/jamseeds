@@ -10,16 +10,12 @@
 
     <%# User profile image %>
     <div class="profile__image">
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, width: 150, height: 150, gravity: "face", crop: :thumb, class: 'rounded-circle border-2 border' %>
-        <% else %>
-          <img class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>" src="<%= @user.profile_img_url %>" alt="">
+      <%= render "shared/photo" %>
+      <div style="position:absolute; right: 65px; bottom: 1px;">
+        <%= link_to edit_user_path(@user) do %>
+          <i class="fa-solid fa-user-pen"></i>
         <% end %>
-        <div style="position:absolute; right: 65px; bottom: 1px;">
-          <%= link_to edit_user_path(@user) do %>
-            <i class="fa-solid fa-user-pen"></i>
-          <% end %>
-        </div>
+      </div>
     </div>
     <div class="d-none">
       <%= simple_form_for @user do |f| %>

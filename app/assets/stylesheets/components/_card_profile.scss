@@ -33,6 +33,7 @@
 
 
     .card-body__image {
+     
       min-width: 80px;
       height: 80px;
       border-radius: 50%;
@@ -41,7 +42,9 @@
       background-repeat: no-repeat;
       background-size: cover;
       margin-right: 35px;
-
+      position:absolute;
+      left: 50px;
+      top: 100px;
     }
 
     .card-body-title {

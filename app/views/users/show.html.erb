@@ -3,7 +3,7 @@
 
       <%# User profile image %>
       <div class="profile__image">
-        <img class="card-body__imagelg <%= @user.online? ? 'border green-border' : '' %>" src="<%= @user.profile_img_url %>" alt="">
+         <%= render "shared/photo" %>
       </div>
     </div>
 

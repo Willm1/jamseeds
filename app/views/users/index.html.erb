@@ -1,41 +1,44 @@
 <div class="margin-top-bottom ml-0">
-
   <div class="row">
     <% @users.each do |user| %>
-      <div class="col-3">
-        <%= link_to user_path(user) do %>
-        <div class="card card-jamseeds mb-5">
-          <img class="card-background" src="<%= user.banner_img_url %>" alt="">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-            <img class="card-body__image <%= user.online? ? 'border green-border' : '' %>" src="<%= user.profile_img_url%>" alt="">
-                <div>
-                  <h2 class="card-title card-body-title">  <%= user.first_name %></h2>
-                  <p class="card-text"> <%= "#{user.city}, Portugal" %></p>
-                </div>
+    <div class="col-12 col-md-6 col-lg-3 ">
+      <%= link_to user_path(user) do %>
+      <div class="card card-jamseeds mb-5">
+        <img class="card-background" src="<%= user.banner_img_url %>" alt="">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, gravity: "face", crop: :thumb, class: "card-body__image rounded-circle border-2 border card-body__image #{user.online? ? 'border green-border' : ''}" %>
+            <% else %>
+              <img class="card-body__image <%= user.online? ? 'border green-border' : '' %>" src="<%= user.profile_img_url %>" alt="">
+            <% end %>
+            <div>
+              <h2 class="card-title card-body-title">  <%= user.first_name %></h2>
+              <p class="card-text"> <%= "#{user.city}, Portugal" %></p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between card-body__details">
+            <div>
+              <div>
+                <i class="fa-solid fa-guitar"></i>
+                <% if user.user_instruments.empty? %>
+                  <span class="card-body__details">Instruments yet to be added</span>
+                <% else %>
+                  <%= user.instruments.first(3).pluck(:name).map(&:capitalize).to_sentence %>
+                <% end %>
               </div>
-              <div class="d-flex justify-content-between card-body__details">
-                <div>
-                  <div>
-                    <i class="fa-solid fa-guitar"></i>
-                    <% if user.user_instruments.empty? %>
-                      <span class="card-body__details">Instruments yet to be added</span>
-                    <% else %>
-                      <%= user.instruments.first(3).pluck(:name).map(&:capitalize).to_sentence %>
-                    <% end %>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-music"></i>
-                      <% if user.user_genres.empty? %>
-                        <span class="card-body__details">Genres yet to be added</span>
-                      <% else %>
-                        <% genre = [] %>
-                        <% user.genres.first(3).each do |user_genre| %>
-                          <span class="card-body__details"><% genre << " #{user_genre.name.capitalize}" %>
-                        <% end %>
-                        <%= genre.to_sentence %>
-                        </span>
+              <div>
+                <i class="fa-solid fa-music"></i>
+                  <% if user.user_genres.empty? %>
+                    <span class="card-body__details">Genres yet to be added</span>
+                  <% else %>
+                    <% genre = [] %>
+                    <% user.genres.first(3).each do |user_genre| %>
+                      <span class="card-body__details"><% genre << " #{user_genre.name.capitalize}" %>
                       <% end %>
+                      <%= genre.to_sentence %>
+                      </span>
+                    <% end %>
                   </div>
                 </div>
                 <div>
@@ -44,16 +47,15 @@
                     <span><%= user.age %></span>
                   </div>
                   <div>
-                  <i class="fa-solid fa-building-columns"></i>
-                  <span><%= user.updated_ability %></span>
-
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span><%= user.updated_ability %></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <% end %>
         </div>
-       <% end %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
