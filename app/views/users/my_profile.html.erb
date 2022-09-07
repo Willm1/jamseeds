@@ -29,11 +29,11 @@
   <div class="profile d-flex mt-5">
     <div class="row">
       <div class="col-12 col-lg-6">
-        <div class="card card-jamseeds h-100">
+        <div class="card user-card h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
               <div class="d-flex justify-content-between">
-                <h4 class="card-body-title">Your details</h4>
+                <h4 class="text-black fw-semibold">Your details</h4>
                 <li class="list-unstyled">
                   <%= link_to edit_user_path(@user) do %>
                     <i class="fa-solid fa-user-pen"></i>
@@ -48,17 +48,17 @@
               <li><i class="fa-solid fa-cake-candles p-2"></i><%= "#{@user.age} years old" %></li>
               <li><i class="fa-sharp fa-solid fa-building-columns p-2"></i><%= "#{@user.updated_ability}" %></li>
             </ul>
-            <h5 class="card-body-title">About Me</h5>
+            <h5 class="text-black fw-semibold">About Me</h5>
             <p> <%= current_user.bio %> </p>
 
           </div>
         </div>
       </div>
       <div class="col-6 col-lg-3">
-        <div class="card card-jamseeds h-100">
+        <div class="card user-card h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-                <h4 class="card-body-title">Instruments</h4>
+                <h4 class="text-black fw-semibold">Instruments</h4>
             </div>
             <% if @user.user_instruments.empty? %>
               <p>Instruments yet to be added</p>
@@ -88,10 +88,10 @@
             <button class="btn btn-primary"><%= link_to 'Add instrument', new_user_instrument_path %></button>
             -->
       <div class="col-6 col-lg-3">
-        <div class="card card-jamseeds h-100">
+        <div class="card user-card h-100">
           <div class="card-body">
             <div class="card-title border-bottom">
-                <h4 class="card-body-title">Genres</h4>
+                <h4 class="text-black fw-semibold">Genres</h4>
             </div>
             <% if @user.user_genres.empty? %>
               <p>Genres yet to be added</p>

@@ -11,7 +11,7 @@
 
 
   <div class="container margin-top w-75">
-    <div class="card card-jamseeds h-100 card-margin">
+    <div class="card user-card h-100 card-margin">
 
         <div class="border-bottom">
           <h1 class="text-black fw-semibold"><%= @user.first_name.blank? ? "" : @user.full_name %></h1>
@@ -48,7 +48,7 @@
       </div>
       </ul>
       <div>
-        <h5 class="card-body-title fw-semibold"><%= "About #{@user.first_name.capitalize}"  %></h5>
+        <h5 class="card-body-title fw-semibold text-black"><%= "About #{@user.first_name.capitalize}"  %></h5>
         <p><%= @user.bio %></p>
         <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
       </div>
