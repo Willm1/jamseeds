@@ -20,7 +20,7 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto align-items-center">
           <li class="nav-item">
-            <strong class="pe-4">Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name %></strong>
+            <strong class="pe-4 text-light">Welcome, <%= current_user.first_name.blank? ? "" : current_user.first_name %></strong>
           </li>
 
           <%# <li class="nav-item">
