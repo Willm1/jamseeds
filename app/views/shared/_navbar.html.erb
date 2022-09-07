@@ -12,7 +12,7 @@
       <%= form_with url: users_path, method: :get, class: "search-bar" do %>
         <ul class="navbar-nav me-auto">
           <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Search by City" %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
         </ul>
       <% end %>
     </div>
