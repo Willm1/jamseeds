@@ -2,7 +2,11 @@
     <div class="col-12 col-md-6 col-lg-3 ">
       <%= link_to user_path(user) do %>
       <div class="card card-jamseeds mb-5">
-        <img class="card-background" src="<%= user.banner_img_url %>" alt="">
+          <% if user.background.attached? %>
+            <div class="card-background" style="background-position: center; background-size: cover;   background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.background.key, crop: :fill %>')"></div>
+          <% else %>
+            <div class="card-background" style="background: center; background-size: cover;   background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= user.banner_img_url %>')"></div>
+          <% end %>
         <div class="card-body">
           <div class="d-flex align-items-center mb-3">
             <% if user.photo.attached? %>

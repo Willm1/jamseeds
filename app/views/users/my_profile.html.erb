@@ -74,11 +74,13 @@
                 <% end %>
               </ul>
             <% end %>
-          <div style="position:absolute; bottom: 30px;" >
+          <div style="position:absolute; bottom: 20px;" >
             <%= simple_form_for @user_instrument do |f| %>
-              <%= f.association :instrument,
-                collection: Instrument.where.not(id: current_user.instruments), class: "card-body-title" %>
-              <%= f.button :submit, '+', class: 'btn btn-primary' %>
+              <div class="d-flex align-items-center">
+                <%= f.association :instrument,
+                  collection: Instrument.where.not(id: current_user.instruments), class: "card-body-title" %>
+                <%= f.button :submit, '+', class: 'btn btn-primary ms-2', style: 'padding-top: 6px; margin-top: 12px;' %>
+              </div>
             <% end %>
           </div>
           </div>
@@ -108,11 +110,13 @@
               <% end %>
             </ul>
             <% end %>
-            <div style="position:absolute; bottom: 30px; margin-top-bottom;">
+            <div style="position:absolute; bottom: 20px; margin-top-bottom;">
               <%= simple_form_for @user_genre do |f| %>
-                <%= f.association :genre,
-                  collection: Genre.where.not(id: current_user.genres), class: "card-body-title" %>
-                <%= f.button :submit, '+', class: 'btn btn-primary' %>
+                <div class="d-flex align-items-center">
+                  <%= f.association :genre,
+                    collection: Genre.where.not(id: current_user.genres), class: "card-body-title" %>
+                  <%= f.button :submit, '+', class: 'btn btn-primary ms-2', style: 'padding-top: 6px; margin-top: 12px;' %>
+                </div>
               <% end %>
               </div>
             </div>
