@@ -80,6 +80,6 @@ class User < ApplicationRecord
   def online?
     return if last_login_at.nil?
 
-    last_login_at > 10.minutes.ago
+    last_login_at > 30.minutes.ago
   end
 end
