@@ -22,7 +22,15 @@
   overflow-x: hidden;
 
   a {
-    color: lightgray;
+    color: $gray;
+  }
+
+  a:hover {
+    color: $black;
+  }
+
+  a:visited {
+    color: $green;
   }
 }
 
