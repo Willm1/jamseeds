@@ -26,7 +26,7 @@
 </div>
 
 <div class="margin-top-bottom">
-  <div class="profile d-flex mt-5">
+  <div class="profile d-flex mt-5" style="position:relative">
     <div class="row">
       <div class="col-12 col-lg-6">
         <div class="card user-card h-100">
@@ -78,7 +78,7 @@
             <%= simple_form_for @user_instrument do |f| %>
               <%= f.association :instrument,
                 collection: Instrument.where.not(id: current_user.instruments), class: "card-body-title" %>
-              <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
+              <%= f.button :submit, '+', class: 'btn btn-primary' %>
             <% end %>
           </div>
           </div>
@@ -112,7 +112,7 @@
               <%= simple_form_for @user_genre do |f| %>
                 <%= f.association :genre,
                   collection: Genre.where.not(id: current_user.genres), class: "card-body-title" %>
-                <%= f.button :submit, 'Add', class: 'btn btn-primary' %>
+                <%= f.button :submit, '+', class: 'btn btn-primary' %>
               <% end %>
               </div>
             </div>

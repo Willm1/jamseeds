@@ -1,5 +1,5 @@
   <% if @user.background.attached? %>
-    <div style="height: 380px; background-position: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, crop: :fill %>')"></div>
+    <div style="height: 380px; background-position: center; background-size: cover;   background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.background.key, crop: :fill %>')"></div>
   <% else %>
-    <div style="height: 380px; background: center; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
+    <div style="height: 380px; background: center; background-size: cover;   background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @user.banner_img_url %>')"></div>
   <% end %>

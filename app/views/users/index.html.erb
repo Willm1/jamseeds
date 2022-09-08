@@ -1,5 +1,11 @@
 <div class="page-margin-top ml-0">
-  <div class="row">
-    <%= render "shared/cards" %>
-  </div>
+  <% if @users.empty? %>
+    <p class="text-center">
+      <%= "There weren't any users matching your search criteria. Please search again" %>
+    </p>
+  <% else %>
+    <div class="row">
+      <%= render "shared/cards" %>
+    </div>
+  <% end %>
 </div>
