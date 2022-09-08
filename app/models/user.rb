@@ -9,8 +9,8 @@ class User < ApplicationRecord
   # Automatically add user to chatroom when they join
   after_create_commit { broadcast_append_to 'users' }
 
-  has_many :user_instruments
-  has_many :user_genres
+  has_many :user_instruments, dependent: :destroy
+  has_many :user_genres, dependent: :destroy
   has_many :messages
   has_many :instruments, through: :user_instruments
   has_many :genres, through: :user_genres
