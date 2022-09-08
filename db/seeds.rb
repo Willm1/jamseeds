@@ -151,6 +151,7 @@ user = User.create!(
   dob: Faker::Date.birthday(min_age: 18),
   ability: 3,
   bio: "Hey everyone! My name is Will and i'm a classical guitar player!",
+
   profile_img_url: "https://res.cloudinary.com/ds9cwrw2s/image/upload/v1662615478/2330AD07-83F2-41CC-A3C9-0C982889D974_cmqiuf.jpg",
   banner_img_url: "https://images.pexels.com/photos/3807838/pexels-photo-3807838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   password: "password",
