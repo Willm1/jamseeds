@@ -81,8 +81,7 @@ user = User.create!(
   postcode: Faker::Address.zip_code,
   dob: Faker::Date.birthday(min_age: 18),
   ability: 0,
-  bio: "Hey! My name is Pedro. Love playing the guitar so hit me up if you wanna make some
-        music!",
+  bio: "Hey! My name is Pedro. Love playing the guitar so hit me up if you wanna make some music!",
   profile_img_url: "https://res.cloudinary.com/ds9cwrw2s/image/upload/v1662560514/pedro_penalq.jpg",
   banner_img_url: "https://images.pexels.com/photos/2254140/pexels-photo-2254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   password: "password",
