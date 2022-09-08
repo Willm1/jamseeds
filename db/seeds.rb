@@ -10,6 +10,7 @@ User.destroy_all
 Instrument.destroy_all
 Chatroom.destroy_all
 ChatroomUser.destroy_all
+Genre.destroy_all
 
 # add profile background image urls to array
 bg_imgs = []
@@ -52,17 +53,11 @@ instruments = %w[Guitar Vocals Violin Piano Trumpet].map do |name|
   Instrument.create!(name:)
 end
 
-# for individual instrument seed
-instrument = Instrument.create(name: "Guitar")
-
 # for main genre seeds
 genres = []
 %w[Pop Classical Metal Jazz Indie].each do |name|
   genres << Genre.create!(name:)
 end
-
-# for individual genre seed
-genre = Genre.create(name: "Classical")
 
 # Get user faker details from API
 url = "https://randomuser.me/api/?results=30&nat=br"
@@ -87,8 +82,8 @@ user = User.create!(
   password: "password",
   password_confirmation: "password"
 )
-user.instruments << instrument
-user.genres << genre
+user.instruments << Instrument.find_by(name: "Guitar")
+user.genres << Genre.find_by(name: "Classical")
 
 user = User.create!(
   first_name: "Leith",
@@ -157,8 +152,8 @@ user = User.create!(
   password_confirmation: "password",
 
 )
-user.instruments << instrument
-user.genres << genre
+user.instruments << Instrument.find_by(name: "Guitar")
+user.genres << Genre.find_by(name: "Classical")
 
 puts "Creating chatrooms"
 Chatroom.create!(name: "general", group: false)
