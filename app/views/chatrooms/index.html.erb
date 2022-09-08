@@ -18,22 +18,21 @@
 
 </style>
 
-<h3 class="pt-5 pb-2"><%= @user.first_name %></h3>
-
 <div class="container-fluid row chatroom-container">
   <div class="col-md-2 col-sm-2 bg-light text-dark side-panel h-100">
-    <h5 class="pt-3"> Direct Messages </h5>
     <%= turbo_stream_from 'users' %>
+
+    <%# List users in the side panel %>
     <div id="users">
       <ul>
         <% @users.each do |user| %>
-          <li>
+          <li class="my-2">
           <% if user.photo.attached? %>
             <%= cl_image_tag user.photo.key, height: 25, width: 25, crop: :fill %>
           <% else %>
             <img src="<%= user.profile_img_url %>" style="height: 25px; width: 25px; border-radius: 50%;" alt="">
           <% end %>
-          <%= link_to user.first_name, start_chat_path(id: user.id) %> <%= user.online? ? icon('fa-solid', 'circle') : '' %>
+          <%= link_to user.first_name, start_chat_path(id: user.id), class:"ms-2" %> <%= user.online? ? icon('fa-solid', 'circle') : '' %>
           </li>
         <% end %>
       </ul>
