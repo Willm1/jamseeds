@@ -25,18 +25,18 @@
     <div id="users">
       <ul>
         <% @users.each do |user| %>
-          <li class="my-2 <%= 'highlighted-user' if @user == user %>">
+          <li class="my-2 ps-1 py-1 <%= 'highlighted-user' if @user == user %>">
 
           <%# Display photo %>
           <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, height: 25, width: 25, crop: :fill %>
+            <%= cl_image_tag user.photo.key, height: 25, width: 25, crop: :fill, class:"#{user.online? ? 'green-border' : ''}" %>
           <% else %>
-            <img src="<%= user.profile_img_url %>" style="height: 25px; width: 25px; border-radius: 50%;" alt="">
+            <img class="<%= user.online? ? 'green-border' : '' %>" src="<%= user.profile_img_url %>" style="height: 25px; width: 25px; border-radius: 50%;" alt="">
           <% end %>
 
           <%# Display user name and link to chat %>
           <span>
-            <%= link_to user.first_name, start_chat_path(id: user.id), class:"ms-2" %> <%= user.online? ? icon('fa-solid', 'circle') : '' %>
+            <%= link_to user.first_name, start_chat_path(id: user.id), class:"ms-2" %>
           </span>
 
           </li>
