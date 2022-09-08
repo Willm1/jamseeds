@@ -31,11 +31,7 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+
 
   .rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
@@ -51,17 +47,44 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .margin-top{
+    margin-top: 100px;
+  }
+
+  .btn-green {
+    background-color: #465741;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+
+  .padding * {
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 2rem;
+    color: #465741;
+  }
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class ="padding">
+      <h1 class ="margin-top heading">Broken a string?</h1>
+      <p>Sorry we can't find that page. You'll find loads to explore on our homepage</p>
+      <div class="p-2 text-white btn btn-primary btn-box-shadow">
+        <a href="http://jamseed.lol/" class="btn-green">Jamseed Home</a>
+      </div>
+
   </div>
 </body>
 </html>

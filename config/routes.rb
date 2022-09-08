@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "profile", to: "users#my_profile"
+  get "error", to: "pages#error"
 
   resources :users do
     resources :genres, only: %i[index show destroy]
