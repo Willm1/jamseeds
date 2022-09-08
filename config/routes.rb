@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "css_template", to: "pages#css_template"
+  get "about", to: "pages#about"
   get "start_chat", to: "users#chatroom"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
