@@ -47,14 +47,22 @@ bg_imgs << "https://images.pexels.com/photos/3544128/pexels-photo-3544128.jpeg?a
 bg_imgs << "https://images.pexels.com/photos/7503461/pexels-photo-7503461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 bg_imgs << "https://images.pexels.com/photos/51932/rotary-valves-tuba-valves-stimmzug-51932.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 
+# for main instrument seeds
 instruments = %w[Guitar Vocals Violin Piano Trumpet].map do |name|
   Instrument.create!(name:)
 end
 
+# for individual instrument seed
+instrument = Instrument.create(name: "Guitar")
+
+# for main genre seeds
 genres = []
 %w[Pop Classical Metal Jazz Indie].each do |name|
   genres << Genre.create!(name:)
 end
+
+# for individual genre seed
+genre = Genre.create(name: "Classical")
 
 # Get user faker details from API
 url = "https://randomuser.me/api/?results=30&nat=br"
@@ -64,7 +72,7 @@ user_seeds = JSON.parse(user_serialized)
 puts "Creating database"
 # generate 30 users
 
-User.create!(
+user = User.create!(
   first_name: "Pedro",
   last_name: "Ferreira",
   email: "pedro@gmail.com",
@@ -80,8 +88,10 @@ User.create!(
   password: "password",
   password_confirmation: "password"
 )
+user.instruments << instrument
+user.genres << genre
 
-User.create!(
+user = User.create!(
   first_name: "Leith",
   last_name: "Atia",
   email: "leith.atia@gmail.com",
@@ -95,8 +105,10 @@ User.create!(
   profile_img_url: "https://media-exp1.licdn.com/dms/image/C4E03AQE_fx4TIUanbQ/profile-displayphoto-shrink_200_200/0/1516878852850?e=2147483647&v=beta&t=c2YLkvCFb6CX56Q_fkknGwWSY3ekJaT3ufbY4gYTKoQ",
   banner_img_url: "https://images.pexels.com/photos/346726/pexels-photo-346726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
 )
+
+
 
 # Shuffle profile background images
 bg_imgs.shuffle
@@ -130,9 +142,9 @@ end
 
 # Create users for chatroom testing
 
-User.create!(
+user = User.create!(
   first_name: "Will",
-  last_name: "May",
+  last_name: "M",
   email: "will@gmail.com",
   city: "Lisboa",
   gender: "Male",
@@ -143,8 +155,11 @@ User.create!(
   profile_img_url: "https://res.cloudinary.com/ds9cwrw2s/image/upload/v1662615478/2330AD07-83F2-41CC-A3C9-0C982889D974_cmqiuf.jpg",
   banner_img_url: "https://images.pexels.com/photos/3807838/pexels-photo-3807838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+
 )
+user.instruments << instrument
+user.genres << genre
 
 puts "Creating chatrooms"
 Chatroom.create!(name: "general", group: false)
