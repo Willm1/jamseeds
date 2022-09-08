@@ -1,0 +1,5 @@
+meta_product_name: "JamSeed"
+meta_title: "JamSeed - Bringing Musicians Together"
+meta_description: "Find fellow musicians to jam with"
+meta_image: "group-pic-og.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
