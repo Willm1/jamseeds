@@ -6,7 +6,9 @@ class PagesController < ApplicationController
     @users = User.all.last(4)
   end
 
-  def error
+  def about
+    @users = User.all.last(4)
+    render :home
   end
 
 

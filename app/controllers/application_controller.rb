@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name postcode gender dob ability instrument])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name postcode gender dob ability instrument photo background])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name postcode gender dob ability instrument])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name postcode gender dob ability instrument photo background])
   end
 
   include Pundit::Authorization
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
-  
+
   private
 
   def skip_pundit?

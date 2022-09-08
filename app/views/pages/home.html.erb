@@ -3,12 +3,14 @@
 
 <div class="banner banner-image">
   <ul class="d-flex justify-content-end list-unstyled">
-    <li class="nav-item">
-      <%= link_to "Login", new_user_session_path, class: "nav-link px-3 py-2 m-3 text-white white-border " %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link p-2 m-3 text-white btn btn-primary btn-box-shadow" %>
-    </li>
+    <% unless current_user %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link px-3 py-2 m-3 text-white white-border " %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link p-2 m-3 text-white btn btn-primary btn-box-shadow" %>
+      </li>
+    <% end %>
   </ul>
   <div class ="d-flex justify-content-between">
     <div class="banner-padding">
