@@ -50,7 +50,19 @@
       <div>
         <h5 class="card-body-title fw-semibold text-black"><%= "About #{@user.first_name.capitalize}"  %></h5>
         <p><%= @user.bio %></p>
-        <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <%= link_to "Message", start_chat_path(id: @user), class:"btn btn-primary mt-2" %>
+          <div>
+            <audio
+              controls
+              src="/media/cc0-audio/t-rex-roar.mp3">
+                  Your browser does not support the
+                  <code>audio</code> element.
+            </audio>
+          </div>
+        </div>
+
       </div>
     </div>
 
