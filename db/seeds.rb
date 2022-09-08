@@ -124,7 +124,7 @@ user_seeds['results'].each do |user_seed|
                       dob: Faker::Date.birthday(min_age: 18),
                       gender: user_seed['gender'],
                       ability: rand(1..3),
-                      bio: Faker::Lorem.sentence(word_count: 75),
+                      bio: [Faker::GreekPhilosophers.quote, Faker::Fantasy::Tolkien.poem, Faker::Hipster.sentences].sample,
                       profile_img_url: user_seed['picture']['medium'],
                       banner_img_url: bg_imgs[img_counter],
                       password: "password",
