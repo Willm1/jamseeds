@@ -96,7 +96,7 @@ user = User.create!(
   ability: 2,
   bio: "Hi, I'm currently studying web development and in my free time I enjoy playing the guitar and singing.
         Would love to find someone to jam with or start a band. I love pistachios and horror films!",
-  profile_img_url: "https://media-exp1.licdn.com/dms/image/C4E03AQE_fx4TIUanbQ/profile-displayphoto-shrink_200_200/0/1516878852850?e=2147483647&v=beta&t=c2YLkvCFb6CX56Q_fkknGwWSY3ekJaT3ufbY4gYTKoQ",
+  profile_img_url: "https://res.cloudinary.com/ds9cwrw2s/image/upload/v1662652415/leith_profile_o5x1tc.jpg",
   banner_img_url: "https://images.pexels.com/photos/346726/pexels-photo-346726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   password: "password",
   password_confirmation: "password",
