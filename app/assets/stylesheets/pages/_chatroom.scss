@@ -21,17 +21,16 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
-  a {
-    color: $gray;
+  .highlighted-user {
+    background-color: $gray;
+    padding: 5px 10px;
+    a {
+      color: $white;
+    }
   }
 
-  a:hover {
-    color: $black;
-  }
 
-  a:visited {
-    color: $green;
-  }
+
 }
 
 .chatroom {
