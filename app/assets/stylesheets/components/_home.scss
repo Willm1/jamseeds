@@ -12,7 +12,7 @@
   height: 72vh;
 }
 .banner-padding {
-  padding: 150px;
+  padding: 80px;
 
 }
 
@@ -70,6 +70,11 @@
 @media only screen and (max-width: 750px) {
 
   .our-story {
-    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .our-story img {
+    
   }
 }
