@@ -9,8 +9,20 @@
 
 .banner {
   background-size: cover;
-  height: 72vh;
+  height: 80vh;
+  position: relative;
+
+
 }
+
+.heading-text-box {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+  transform: translate(-35%, -50%);
+
+}
+
 .banner-padding {
   padding: 150px;
 
@@ -61,15 +73,24 @@
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 600px) {
-  .banner-padding {
-    padding: 75px;
-  }
-}
+
 
 @media only screen and (max-width: 750px) {
 
   .our-story {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    // max-width: 75%;
+    height: 100%;
+
+  }
+  .btn-primary {
+    margin-bottom: 2rem;
+}
+}
+
+@media only screen and (max-width: 600px) {
+  .banner-padding {
+    padding: 75px;
   }
 }
