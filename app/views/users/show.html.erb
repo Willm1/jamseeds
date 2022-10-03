@@ -1,7 +1,7 @@
   <div>
     <%= render "shared/banner" %>
   </div>
-    <div style="position:absolute; left: 32%; top: 390px;">
+    <div style="position:absolute; left: 28%; top: 35%;">
 
       <%# User profile image %>
       <div class="profile__image">
@@ -10,22 +10,22 @@
     </div>
 
 
-  <div class="container margin-top w-75">
+  <div class="container margin-top width-card">
     <div class="mx-auto card user-card h-100 card-margin px-5" style="max-width: 750px;">
 
         <div class="border-bottom">
           <h1 class="text-black fw-semibold"><%= @user.first_name.blank? ? "" : @user.full_name %></h1>
         </div>
 
-      <ul class="list-unstyled d-flex mt-3">
-      <div>
-        <li><i class="fa-solid fa-location-dot p-3 icon-width"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
-        <li><i class="fa-solid fa-cake-candles p-3 icon-width"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
-        <li><i class="fa-solid fa-venus-mars p-3 icon-width"></i><%= @user.gender.blank? ? "" : "#{@user.gender.capitalize}" %></li>
+      <ul class="list-unstyled display-content mt-3">
+      <div class ="width-content">
+        <li class ="right-margin"><i class="fa-solid fa-location-dot p-3 icon-width"></i><%= @user.city.blank? ? "" : "#{@user.city}, Portugal" %></li>
+        <li class ="right-margin"><i class="fa-solid fa-cake-candles p-3 icon-width"></i><%= @user.age.blank? ? "" : "#{@user.age} years old" %></li>
+        <li class ="right-margin"><i class="fa-solid fa-venus-mars p-3 icon-width"></i><%= @user.gender.blank? ? "" : "#{@user.gender.capitalize}" %></li>
       </div>
-      <div>
-        <li><i class="fa-sharp fa-solid fa-building-columns p-3 left-margin icon-width"></i><%= "#{@user.updated_ability.capitalize}" %></li>
-        <li><i class="fa-solid fa-guitar p-3 left-margin icon-width"></i>
+      <div class ="width-content">
+        <li ><i class="fa-sharp fa-solid fa-building-columns p-3 icon-width"></i><%= "#{@user.updated_ability.capitalize}" %></li>
+        <li ><i class="fa-solid fa-guitar p-3 icon-width"></i>
           <% if @user.user_instruments.empty? %>
             User yet to add instrument
           <% else %>
@@ -35,7 +35,7 @@
               <%= instrument.to_sentence %>
           <% end %>
         </li>
-        <li class="ml-1"><i class="fa-solid fa-music p-3 left-margin icon-width"></i>
+        <li class="ml-1 "><i class="fa-solid fa-music p-3 icon-width"></i>
           <% if @user.user_genres.empty? %>
             User yet to add genre
           <% else %>

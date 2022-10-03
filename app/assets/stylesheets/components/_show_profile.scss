@@ -1,5 +1,11 @@
 .show-card-width {
   width: 350px;
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+
+
+  }
+
 }
 
 .card-body__image {
@@ -29,3 +35,24 @@ margin-left: 2rem;
 .icon-width {
   min-width: 55px;
 }
+
+.display-content {
+  display: flex;
+  // justify-content: space-around;
+
+  @media only screen and (max-width: 990px) {
+    flex-direction: column;
+
+
+  }
+}
+
+.width-card
+  {width: 75%;
+
+    @media only screen and (max-width: 780px) {
+      width: 100%;
+
+
+    }
+  }

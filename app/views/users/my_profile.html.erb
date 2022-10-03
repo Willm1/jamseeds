@@ -2,7 +2,7 @@
 <div>
   <%= render "shared/banner" %>
 
-  <div style="position:absolute; left: 18%; top: 390px;">
+  <div style="position:absolute; left: 18%; top: 35%;">
 
     <%# User profile image %>
     <div class="profile__image">
@@ -74,7 +74,7 @@
                 <% end %>
               </ul>
             <% end %>
-          <div style="position:absolute; bottom: 20px;" >
+          <div style="position:absolute; bottom: 20px ;" >
             <%= simple_form_for @user_instrument do |f| %>
               <div class="d-flex align-items-center">
                 <%= f.association :instrument,
