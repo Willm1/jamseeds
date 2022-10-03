@@ -23,3 +23,14 @@
 .navbar-title-color {
   color: $white;
 }
+
+.search-bar {
+  @media only screen and (max-width: 775px) {
+  max-width: 75%;
+  margin: 0 auto;
+  font-size: 10px;
+  }
+  @media only screen and (max-width: 585px) {
+    display: none;
+  }
+}

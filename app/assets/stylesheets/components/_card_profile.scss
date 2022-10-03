@@ -98,8 +98,17 @@
   margin-right: 35px;
 }
 
-.left-margin {
-  margin-left: 200px;
+.right-margin {
+  margin-right: 200px;
+
+  @media only screen and (max-width: 1225px) {
+    margin-right: 100px;
+
+    }
+  @media only screen and (max-width: 1000px) {
+    margin-right: 50px;
+
+    }
 }
 
 .card-margin {
